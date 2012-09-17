@@ -1,0 +1,73 @@
+<html>
+<head>
+<!--<link rel=stylesheet type="text/css" href="{BASEURL}/stylesheet_email.css">-->
+<style type="text/css">
+a {
+	color: #9a2b1f; 
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #333; 
+	text-decoration: underline;
+}
+.certificate { 
+	width: 500px;
+	margin: 20px auto;
+	padding: 0px; 
+	border: 1px solid #000; 
+	background-color: #999; 
+}
+ 
+.certificate h2 {
+	margin-top: 0px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	font-size: 16px;
+	font-weight: 400;
+	color: #9a2b1f;
+	background: #040707;
+}
+ 
+.certificate td { padding: 5px; color: #fff; }
+</style>
+</head>
+<body style="padding:10px">
+
+<h2>Thank you for ordering a gift certificate from {store_name}</h2>
+
+<p>{email_gift_msg} 
+
+<p>To use the gift certificate, the recipient of your gift should shop at <a href = "{BASEURL}">{BASEURL}</a> and enter this code: <b>{coupon_code}</b> in the area provided on the checkout form. Or they may bring the gift certificate to one of these stores:
+
+<p>{store_address}
+
+<h3>Gift Certificate Details</h3>
+
+<p>From: {certificate_from}
+
+<p>To: {certificate_to}
+
+<p>Amount: {value}
+
+<p>Gift code: {coupon_code}
+
+<p>A copy of your gift certificate appears below.<p>
+<div align="center">
+<div class="certificate">
+<div align="center"><img src="{BASEURL}/images/giftcertificate_logo.jpg" border="0"></div>
+<h2 style="margin-top:0px;text-align:center">A Gift Certificate from {store_name}</h2>
+<div align="center">
+	<span class="highlight">This certificate entitles {certificate_to}
+			to ${value}</span><br />towards products available at {BASEURL}.<p>
+			{personal_note}<br><span class="highlight">From: {certificate_from}</span><p>
+			To redeem your gift certificate visit:<br /><a href ="{BASEURL}">{BASEURL}</a>
+
+<p>When you are done shopping on the site and ready to checkout,<br />enter this code in the area provided on the checkout form:<br /><b>{coupon_code}</b><hr>Or bring your gift certificate to one of these stores:<br>
+{store_address}<br>
+<span class="smallnotes">Check gift certificate value at {BASEURL}/home/{STOREID}/checkgift<br>Not redeemable for cash.</span>
+	</div>
+</div>
+</div>
+</body>
+</html>

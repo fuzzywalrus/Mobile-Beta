@@ -1,0 +1,36 @@
+<!--studio/product_detail.html-->
+<!--SET SBWIDTH==sidebarwide-->
+<!--SET SBTOP==<div class="blk"><h1>{parent.cat_name}</h1><img src="images/navtop_blk.gif" width="210" height="38" border="0" alt=""><ul class="">-->
+<!--SET SIDEBARNAV==insert|categories|{parent_id}||<li><a href="<<link_action>>"><<cat_name>></a></li>|20|||-->
+<!--SET SBBTM==</ul></div>-->
+<!--SET MAINCONTENT==contentnarrow-->
+
+<div class="jumptobox">See other workshop titles: <form action="page" method="POST" style="display:inline;margin-left:6px">	
+				<select name="product_id" onChange="jumpTo('parent',this,0)" class="formborder">
+				<option value="0">Jump to...
+					<!--insert|items|{parent.cat_id}||<option value="page_<<product_id>>"><<product_name>>|50|||-->
+				</select></form></div>
+
+<table class="table_nomargin" style="margin-bottom:10px">
+	<tr valign="top">
+		<td align="left">
+<img src="{th_product_image1}" border="0" name="big" alt="{SEO_TITLE}"> 
+{OPTION_DETAILS}
+<p><!--<div class="tellafriend" style="margin-top:10px"><a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/tellafriend.html?page={THISPAGE}','newin','toolbar=no,location=no,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=500,height=525')">Tell a Friend</a></div>--></td>
+
+		<td align="left" style="padding-left:10px"><h1>{product_name}</h1>
+	 <!--{product_flag3}_on<div class="flag">New!</div>{product_flag1}_on--> 
+		<b>Date:</b> {custom1}<br>
+		<b>Price:</b> {custom2}<br>
+		<b>Instructor:</b> {custom3}<br>
+		<b>Skill Level:</b> {custom4}<p>
+		
+		<b>Register for this Class</b><p>
+		
+		{ADDTOCART}
+		</td>
+	</tr>
+</table>
+	{blurb1}
+
+<!--/product_detail.html-->

@@ -1,0 +1,33 @@
+<h1>Request an Item</h1>
+		<p>If you would like to request an item that is not currently in stock, just fill out the form below and provide us with the details. We will email you back with availability and options.
+
+		<form action="{RELATIVEURL}/images-mm/mmprocess.php" method="post" class="fancyform" onSubmit ="return validate_form(this)">
+
+<input type="Hidden" name="receiver_list" value="aschulze--at--glasscraftinc--dot--com">
+       
+<input type="Hidden" name="response_location"
+       value="http://www.glasscraftinc.com/home/gla/thankyou_main.html">
+       
+<input type="Hidden" name="required" value="Email Address,captcha">
+       
+<input type="Hidden" name="email_subject" value="Glasscraft Backorder Request">
+
+<p><label>Your Name</label><input type="text" size="25" name="Name"></p>
+
+<p><label>Email</label><input type="text" size="25" name="Email_Address"></p>
+	
+<p><label>Phone</label><input type="text" size="25" name="Phone"></p>
+	
+<p><label>Product You Are Interested In</label><textarea name="Products" rows=3 cols=25 wrap>
+<!--insert|product|{myid}||<<catalog_id>> - <<product_name>>|--></textarea></p>
+	
+<p><label>Qty Needed</label><input type="text" size="25" name="Quantity Needed"></p>
+	
+<p><label>Comments or Questions Other instructions (i.e. when you need it by, other products needed, etc):</label><textarea name="Comments" rows=5 cols=45 wrap></textarea>
+		</p>
+		<p><label><img name = "captcha" src="{RELATIVEURL}/images-mm/mmprocess.php?image=1" align="middle" border="1" valign="middle" ></label>
+<input type = "text" id = "Verification Code" name = "captcha" size = "10" ><br/>enter the numbers in the box to the left (required)</p>
+
+	<p class="submit"><input  type="Submit" name="submit" class="cartbutton cartbutton_forwardsml" value="Submit Request"></p>
+
+	</form>

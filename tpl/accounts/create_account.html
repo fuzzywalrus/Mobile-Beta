@@ -1,0 +1,30 @@
+<!--  create_account.html -->
+ <input type="hidden" name="account_active" value="Y">
+        <input type="hidden" name="required" value="first_name, last_name, Email_Address, account_name, captcha">
+<div data-role="collapsible" data-content-theme="b" data-theme="b">
+<h3>Create an Account</h3>
+<p><b>Save time the next time you shop with us.</b><br>Just choose a login user name and password and next time you shop, you won't have to fill out your billing and shipping information (for your security, we DO NOT store your credit card information).</p>
+
+<label for="account_name">Login User Name:<small><br>Letters and numbers only, no spaces)</small></label>
+<input type="text" name="account_name" value="{account_name}"/>
+
+<label for="account_password">Password:<small><br>(minimum 6 characters)</small></label>
+<input type="password" name="account_password" value="{account_password}" class="fullwidth"/>
+
+<label for="Verify_Password">Re-enter Password:</label>
+<input type="password" name="Verify_Password" onBlur="javascript: compare('orderform','account_password','Verify_Password')"/>
+<br>
+<label>
+<img name="verify" src="{RELATIVEURL}/home/{STOREID}/randomimage.gif" border="1"><br />
+<input type="text" id="Verification Code" name="captcha" size="10">
+</label>
+</div>
+<!-- /create_account.html -->
+
+
+
+
+
+
+
+

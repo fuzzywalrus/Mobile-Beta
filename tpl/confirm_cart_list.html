@@ -1,0 +1,102 @@
+<!-- confirm_cart_list.html fits into confirmorder.html -->
+
+<input type="hidden" name="order_id" value="{SESSION}">
+<table class="tablecart" cellspacing="0">
+	<tr class="bkgnd1">
+		<th class="bkgnd1" width="50%" align="left">
+		Item
+		</th>
+		<th class="bkgnd1" width="10%" align="right">
+		Qty
+		</th>
+		<th class="bkgnd1" width="15%" align="right">
+		Price
+		</th>
+		<th class="bkgnd1" width="25%" align="right">
+		Ext. Price
+	</th>
+	</tr>
+	<!-- NAME: confirm_cart_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: confirm_cart_list_row -->
+	<tr valign="top" class="bkgnd2">  
+		<td class="products" align="left"><span class="sku">{catalog_id}</span> {product_name}<div style="padding-left:10px">{option1} {option2} {option3}</div>
+<div style="padding-left:10px">{item_custom1} {item_custom2} {item_custom3}</div>
+<div style="padding-left:10px">{item_other_info}</div></td>
+		<td class="products" align="right">
+		{qty}
+		</td>
+		<td class="products" align="right">
+		{price}
+		</td>
+		<td class="products" align="right">
+		{extended_price}
+		</td>
+	</tr>
+	<!-- END DYNAMIC BLOCK: confirm_cart_list_row -->
+	<!-- END: confirm_cart_list.html -->
+</table>
+<table class="tablecart" cellspacing="0">
+	<tr class="bkgnd1">
+		<th class="bkgnd1" align="right" width="90%">
+		Subtotal:
+		</th>
+		<th class="bkgnd1" width="10%" align="right">
+		{total_price}
+		</th>
+	</tr>
+	<!--giftcerts
+	<tr class="bkgnd2">
+		<th class="bkgnd2" align="right">{gift_certificate_amount} Gift Certificate:</th>
+		<th class="bkgnd2" align="right">{gift_value}</th>
+	</tr> giftcerts-->
+	<!--coupons
+	<tr class="bkgnd2">
+		<th class="bkgnd2" align="right">Coupon:</th>
+		<th class="bkgnd2" align="right">{coupon_value}</th>
+	</tr> coupons-->
+	<!--giftcerts_or_coupons
+	<tr class="bkgnd2" valign="top">
+		<th class="bkgnd2" align="right">Total Discount:</th>
+		<th class="bkgnd2" align="right">-{discount}</th>
+	</tr>	giftcerts_or_coupons-->
+	<tr class="bkgnd2" valign="top">	
+
+	
+
+	<th class="bkgnd2" align="right">
+
+		Sales Tax (when applicable):<br>
+
+		
+
+	</th>
+
+	
+
+	<th class="bkgnd2" align="right">
+
+		{sales_tax}
+
+	</th>
+	</tr>
+
+	<!-- shipping -->
+	<tr class="bkgnd2">
+	  <th class="bkgnd2" align="right">{SHIPMENU} Shipping and Handling:</th>
+		<th class="bkgnd2" align="right">
+		  {shipping}</th>
+	</tr>
+	<!-- end shipping -->
+	
+	
+	<tr class="bkgnd1">	
+		<th class="bkgnd1"  align="right">
+		Total Charges:
+		</th>
+		<th class="bkgnd1" align="right">
+		{total_charge}
+		</th>
+	</tr>
+</table>
+
+<!-- /confirm_cart_list.html -->

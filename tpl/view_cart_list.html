@@ -1,0 +1,159 @@
+<!--view_cart_list.html-->
+<!--SET CARTINFO==-->
+<!--insert|related_items|{related_id}|3|table:related1|3|-->
+
+
+
+<h1>Shopping Cart</h1>
+<p></p>{order_info}<p>
+
+<script>
+	$(document).ready(function () {
+  		$('.targetedforjquery').empty();
+	});
+</script>
+
+<span class="errormessage"><strong>{MESSAGE}</strong></span>
+<!--loggedout 
+
+<div data-role="collapsible" data-content-theme="b" data-theme="b">
+   <H3>Sign into your acccount</H3>
+	<div>
+<form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
+	
+	<p>
+	<table width = "100%" cellpadding = "3" cellspacing = "0" border="1" bgcolor="#eaeaea"> 
+		<tr>
+			<td width="38%">
+			
+					<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.
+			</td>
+			<td width="62%">
+					User Name: <input type="text" name = "account_name" size = "15" style="width:90%;"><br>
+					Password: 
+					<input type="hidden" name = "goto" value = "checkout" size = "10" style="width:90%;">
+					<input type="password" name = "account_password" size =  "15" style="width:90%;">
+					<br>
+					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear">
+				
+				</span>
+			</td>
+		</tr>
+</table> 
+
+</form>
+	</div>
+</div>
+loggedout-->
+
+
+<form method = "POST" action = "updatecart">
+
+<div id="cartcontent">
+<div  data-role="collapsible" data-content-theme="b" data-theme="e">
+<h3>View Cart Contents</h3>
+	<div>
+		<ol>
+<!-- NAME: view_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: view_cart_list_row -->
+			<li class="cartproduct">
+				<input type="hidden" name="keyfield[{item_id}]" value="{item_id}" />
+				<input type="hidden" name="min_qty[{item_id}]" value = "{minimum_qty}" />
+				<input type="hidden" name="max_qty[{item_id}]" value = "{qty_on_hand}" />
+				<input type="hidden" name="xqty[{item_id}]" value="{qty}" />
+         
+			   <a href = "page_{product_id}">{product_name}</a> <b>{catalog_id}</b><br />
+			   
+     	      <div class="cartproductinfo">
+       	       {price}&nbsp;&nbsp;Qty: <input type="text" size = "2" maxsize = "5" name="qty[{item_id}]" value="{qty}" style="display:inline;width:14%;" /> <br>Total: {extended_price}<br>
+ 
+				  <!-- UNCOMMENT IF SITE HAS OPTIONS -->{options1} {options2} {options3}
+				  <a href = "remove?item={item_id}"><input type = "button" class ="removecartbutton" value="Remove" data-icon="delete"></a>
+
+			   </div>
+			   <hr>
+			</li>
+
+	<!-- END DYNAMIC BLOCK: view_cart_list_row -->
+	<!-- END: view_cart_list.html -->
+		</ol>
+	</div>
+		<hr>
+   <input data-theme="e" type="submit" name="submit" value="Made changes? Recalculate" data-icon="star"/>
+   				<input type="hidden" name="startovertext" value="Clear Cart" />
+		<input  type="submit" class="fancybutton2" name="submit" value="Clear Cart" data-theme="a"  data-icon="delete"/>
+</div>
+
+
+
+	<div class="shadedbox"><strong>Cart Total: {total_price}</strong></div>
+
+	<hr>
+	
+	
+	
+<div data-role="collapsible" data-content-theme="b">
+   <H3>Enter Your Coupon Code</H3>
+		<input type ="text" id="coupon_code" name="coupon_code" value="{coupon_code}" size = "7" maxsize = "15"placeholder="Enter your coupon code here:"/>  
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		<hr>
+
+		{SHIP_SECTION}
+		{shipping_notes}
+		<p>Shipping Method: {SHIPMENU}</p>
+	
+	<div class="shadedbox"><strong>Total Charges: {total_charge}</strong></div>
+
+		<!--  <input type="hidden" name="last_page" value="{LASTPAGE}" />
+		<input type="hidden" name="goto" value="{LASTPAGE}" /> -->
+
+
+		<div class="" data-type="horizontal" data-role="controlgroup">
+		
+			<input type="hidden" name="continuetext" value="Continue Shopping" >
+			<input type="submit" class="fancybutton2" name="submit" value="Continue Shopping" data-theme="e" data-icon="back" />
+		
+		
+
+
+			<input type="hidden" name="checkoutbuttontext" value="Check Out" />
+		<input class="" type="submit" name="submit" data-theme="b" value="Check Out" {UPS_JAVASCRIPT} data-icon="arrow-r"/>
+		</div>
+		<hr>
+		
+		
+</div>
+</form>
+
+<!-- 
+<form action = "sendestimate" method="post">
+	{emailcart}
+	<input type="hidden" name="estimatebuttontext" value="Create Estimate">
+	<div align="center">
+		<input type = "text" name = "Email_Address">
+
+		<br>
+		<button type="submit" name="viewestimate" >Check Out Later</button>
+	</div> 
+</form> -->
+
+<p>{UPSNOTICE}</p>
+
+
+
+<!--loggedin
+<hr><br>
+
+<a href="logout" data-role="button">Log Out</a> 
+
+loggedin-->
+<!--/view_cart_list.html-->

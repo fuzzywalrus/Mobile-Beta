@@ -1,0 +1,30 @@
+<!--kits category_list.html-->
+<!--SET SBWIDTH==sidebarwide-->
+<!--SET SBTOP==<div class="blk"><h1>{cat_name}</h1><img src="images/navtop_blk.gif" width="210" height="38" border="0" alt=""><ul class="">-->
+<!--SET SIDEBARNAV==insert|categories|{cat_id}||<li><a href="<<link_action>>"><<cat_name>></a></li>|20|||-->
+<!--SET SBBTM==</ul></div>-->
+<!--SET MAINCONTENT==contentnarrow-->
+<div class="mrpadder2">
+<div data-role="collapsible" data-content-theme="b" class="ui-collapsible">
+  	 <h3>Kits Menus</h3>
+
+	<div data-role="controlgroup" data-type="horizontal">
+			<a href="cpage_888/beginner_kits.html" data-role="button">Main</a>
+			<!--insert|categories|888||<a href="<<link_action>>" data-role="button"><<cat_name>></a>|10|||-->
+	</div>
+
+</div>	
+
+</div>
+	<!-- NAME: category_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: category_list_row -->
+	
+		{CATCELL}
+
+
+	<!-- END DYNAMIC BLOCK: category_list_row -->
+	<!-- END: category_list.html -->
+
+<div class="nextprev">{PREV}{NEXT}</div>
+
+<!--/kits category_list.html-->

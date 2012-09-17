@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<!-- Mobile Main Template -->
+<!--Header-->
+<head>
+<!--v.1-->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<!--notsecure <base href = "{BASEHREF}"> notsecure-->
+<title>{SEO_TITLE}</title>
+<!--=======================================================-->
+<!--                       iOSify                          -->
+<!--=======================================================-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="{SEO_DESCRIPTION}" />
+<meta name="keywords" content="{SEO_KEYWORDS}" />
+<!--=======================================================-->
+<!--                      Androidify                       -->
+<!--=======================================================-->
+<script type="javascript">
+function hideAddressBar(){
+  if(document.documentElement.scrollHeight<window.outerHeight/window.devicePixelRatio)
+    document.documentElement.style.height=(window.outerHeight/window.devicePixelRatio)+'px';
+  setTimeout(window.scrollTo(1,1),0);
+}
+window.addEventListener("load",function(){hideAddressBar();});
+window.addEventListener("orientationchange",function(){hideAddressBar();});
+</script>
+<!--=======================================================-->
+<!--                         CSS                           -->
+<!--=======================================================-->
+<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.css" />
+<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile_boi.css"/>
+<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobileaddtional.css" /> 
+<!--=======================================================-->
+<!--                     JQuery + Javscripts               -->
+<!--=======================================================-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<!-- This disables AJAX preloading, very important -->
+<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script>
+<script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.js"></script>
+<script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script>
+{JAVASCRIPT}
+<!-- this hides empty hidable descriptions! --->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.hidabledescription').each(function() {
+			if($.trim($(this).text()) == "") {
+			  $(this).parent().parent().remove();
+			} else {
+			
+			}
+		});
+	});
+</script>
+<script src="{RELATIVEURL}/images-mm/jquery/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox({
+        	imageLoading: '{RELATIVEURL}/images-mm/jquery/images/lightbox-ico-loading.gif',
+			imageBtnClose: '{RELATIVEURL}/images-mm/jquery/images/lightbox-btn-close.gif',
+			imageBtnPrev: '{RELATIVEURL}/images-mm/jquery/images/lightbox-btn-prev.gif',
+			imageBtnNext: '{RELATIVEURL}/images-mm/jquery/images/lightbox-btn-next.gif',
+        });
+        
+    });
+</script>
+<!-- might want to use this as Androidify-->
+<script type="text/javascript">
+	 if(navigator.userAgent.match(/Android/i)){
+    window.scrollTo(0,1); }
+</script>
+<!--=======================================================-->
+<!--                         Defaults                      -->
+<!--=======================================================-->
+<!--DEFAULT CARTINFO==<a href="viewcart" data-theme="b" class="ui-btn-left" data-icon="gear" >My Cart</a>-->
+<!--DEFAULT SEARCHBOTTOM==<div style="text-align:center;"><form method="GET" action="search"><input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"/></form></div>-->
+<!--<a href="viewcart" data-role="button" data-inline="true" data-icon="gear">View Cart / Check Out</a>-->
+<!--DEFAULT SEARCHTOP==-->
+<!--DEFAULT BREADCRUMB=={YOUAREHERE}-->
+</head>
+<!--/Header-->
+<!--Body-->
+<body>		
+<div data-role="page" > <!--Open Mobile Data role page -->
+	<div data-role="header" data-position="inline">
+		<!-- <div id="banner"><div id="logo"><a href="/"><img src="images/mobile_logo.png" border="0" alt="{meta_description}"></a></div></div> --><!--/banner-->
+		<!--session{CARTINFO}session-->
+		<h1 style="color:white;">{total_qty} items/{total_price}</h1>
+		<a href="/" data-icon="home" class="ui-btn-right">Home</a>
+	</div>
+
+	<div data-role="content" >
+		<div class="content-primary" >
+			<div class="insertlist1">{BREADCRUMB}</div>
+			<div class="targetedforjquery">
+				<div style="text-align:center;">
+					<form method="GET" action="search">
+					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"/>
+					<!-- <input type="submit" class="fancybutton2" value="Search" /> -->
+					</form>
+				</div>
+			</div>
+			{PAGECONTENT}
+		</div>
+		
+		<div class="content-secondary"><!-- Navigation -->
+			<h1>Main Menu</h1>
+			<ul  data-role="listview" data-inset="true" data-filter="false">
+				<!--insert|categories|1||<li><a href="<<link_action>>"><<cat_name>></a>|10|||-->
+				<!--noinsert|categories|1|flag2|<li><a href="<<link_action>>" class="<<inpath>>"><<cat_name>></a></li>|10|||-->
+			</ul>
+			
+			<ul data-role="listview" data-inset="true" data-filter="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow mtm">
+				<!--insert|categories|0|flag1|<li><a href="<<link_action>>"><<cat_name>></a></li>|-->
+				<li><a href="contact_main.html">Contact Us</a	></li>
+				<!--	<li><a href="http://www.glasscraftinc.com?switcher=true">Desktop Site</a></li> -->
+				<li><a href="viewcart">View Cart</a></li>
+				<!-- Delete me if customer doesnt have accounts -->
+				<!--loggedout 
+				<li><a href="login">Sign In</a></li>  loggedout-->
+				<!--loggedin
+				<li><a href="orderhistory">View Order History</a></li>
+				<li><a href="logout">Log Out</a></li>
+				 loggedin-->
+			</ul>
+		</div><!--Secondary navigation-->
+	</div><!--/content-->
+	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>{store_phone1}</p>
+			<div class="siteby">{MIGHTY}</div>
+			{ANALYTICS}
+	</div> <!--/Open Mobile Data role page -->
+  <!-- END Mobile main template-->
+</body>
+</html>

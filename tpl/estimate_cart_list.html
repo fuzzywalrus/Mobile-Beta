@@ -1,0 +1,75 @@
+<!--estimate_cart_list.html-->
+<h1>Proposed Items TEST</h1>
+		<form method = "POST" action = "updatecart">
+		
+<a href = "fastorder">Click Here to Add More Items</a>
+<table class="tablecart" cellspacing="0">
+	<tr class="bkgnd1">
+		<th class="bkgnd1" width="50%" align="left">Item</th>
+		<th class="bkgnd1" width="10%" align="right">Qty</th>
+		<th class="bkgnd1" width="15%" align="right">Price</th>
+		<th class="bkgnd1" width="25%" align="right">Extended Price</th>
+	</tr>
+
+<!-- NAME: estimate_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: estimate_cart_list_row -->
+
+	<tr valign="top" class="bkgnd2"> 
+		<td align="left" class="products"><span class="sku">{catalog_id}</span> <a href = "page_{product_id}_{cat_id}/{page_name}">{product_name}</a>
+		<br>&nbsp;&nbsp;<span class="options">{options1} {options2} {options3}</span></td>
+		
+		<td class="products" align="right">
+		<input type="HIDDEN" name="keyfield[{item_id}]" value="{item_id}">
+		<input type="HIDDEN" name="xqty[{item_id}]" value="{qty}">
+		<input type="TEXT" size = "5" maxsize = "5" name="qty[{item_id}]" value="{qty}"></td>
+
+		<td class="products" align="right">
+		{price}</td>
+		<td class="products" align="right">
+		{extended_price}</td>
+	</tr>
+
+	<!-- END DYNAMIC BLOCK: estimate_cart_list_row -->
+	<!-- END: estimate_cart_list.html -->
+
+</table>
+
+<table class="tablecart" cellspacing="0">
+	<tr class="bkgnd1">
+		<th class="bkgnd1" width="90%" align="right">Subtotal:</th>
+		<th class="bkgnd1" align="right" width="10%">{total_price}</th>
+	</tr>
+	<!--shipping-->
+	<tr class="bkgnd2">
+		<th class="bkgnd2" align="right">
+		{SHIPMENU} Shipping and Handling:</th>
+		<th class="bkgnd2" align="right" >
+		<b>{shipping}</b>
+		</th>
+	</tr>
+	<!--/shipping-->
+	<tr class="bkgnd1">
+		<th class="bkgnd1" align="right">Total Charges:</th>
+		<th class="bkgnd1" align="right">{total_charge}</th>
+	</tr>
+</table>
+	
+<div align="center">
+
+   <input data-theme="e" type="submit" name="submit" value="Recalculate" />
+
+<input class="cartbutton" type="submit" name="submit" value="Update Cart"></div>
+						
+			</form>
+			
+			
+			
+			
+<form action="sendestimate" method="post" style="margin-top:15px">
+
+			Send Proposal to:<input type = "text" name = "Email_Address">
+			<br><TEXTAREA rows = "5" cols = "40" name = "note"></TEXTAREA>
+			<br>
+			<input data-theme="e" type="submit" name="submit" value="Send Proposal" />
+</form>
+<!--/estimate_cart_list.html-->

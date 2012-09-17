@@ -1,0 +1,41 @@
+<!--products no descriptions category_cell.html-->
+
+<!--	<div class="ui-block-a cat_cell" style="width:140px !important;padding-top:5px;">
+	
+		<div class="cat_cell_insider">
+			<a href = "{link_action}">
+				<IMG SRC = "{th_cat_image1}" border="0" alt="{cat_name}" align="middle">
+			</a>
+		</div>
+		
+		<div class="cat_cell_insider2" style="width:135px;vertical-align:middle;text-align:center;">
+			<div class="cellheader">
+				<a href = "{link_action}">{cat_name}</a>
+			</div>
+			<div class="celltext">{cat_blurb2}</div>
+		</div>
+		
+	</div>  -->
+	
+	
+<div data-role="collapsible" data-content-theme="c" class="ui-collapsible">
+	<h3>{cat_name}</h3>
+	<p align="center">
+   		<a href = "{link_action}" ><IMG SRC = "{th_cat_image1}" border="0" alt="{cat_name}" align="middle"></a>
+   
+			<div class="cellheader">
+				<a href = "{link_action}">{cat_name}</a>
+			</div>
+		
+		
+		<div data-theme="b" data-content-theme="d" data-role="collapsible">
+			<h3>Description</h3>
+			<div class="celltext hidabledescription">{cat_blurb1}</div>
+		
+		</div>
+			
+		
+	 </p>
+</div>
+			
+<!--/products no descriptions category_cell.html-->

@@ -1,0 +1,18 @@
+<form method="POST" action="addtocart">
+<input type="hidden" name="product_id" value="{product_id}">
+<input type="hidden" name="goto" value="samepage">
+<input type="hidden" name="related_id" value="{product_id}">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr valign="top">
+			<td align="left" width="10%"><a href="{RELATIVEURL}/{product_image1}" rel="thumbnail" title="{product_name}"><img src="{th_product_image1}" border="0" alt=""></a><!--add alt tag back in--></td>
+			<td align="left" width="35%"><a href="page_{product_id}_{cat_id}/{page_name}?stpl=kits"><b>{product_name}</b></a><br><span class="smallnotes">{catalog_id}</span></td>
+			<td align="right" width="10%" style="padding-right:15px"><!--loggedin<!--{product_flag2}_off<strike>${price2}</strike><br>{product_flag2}_off-->loggedin--><!--loggedin<!--{product_flag2}_on {product_flag2}_on-->loggedin--><!--{product_flag2}_on<span class="onsale">On Sale</span><br>{product_flag2}_on-->${price}</td>
+			<td align="left" width="20%"><!--{stock_flag}_off Temporarily Out of Stock{stock_flag}_off-->{fancy_options}</td>
+			<td align="right" width="15%"><!--{stock_flag}_on Qty: <input type="TEXT" class="formborder" size="2" name="qty" value=""><input type="image" src="/images/add.gif" width="37" height="21" value="Add to Cart" style="vertical-align:middle;margin-left:8px">{stock_flag}_on--><!--{stock_flag}_off <a href="page_{product_id}?stpl=inv&myid={product_id}">Request It!</a>{stock_flag}_off--></td>
+		</tr>
+		<tr valign="top">
+			<td>&nbsp;</td>
+			<td colspan="4" align="left" style="padding-top:6px">{blurb1}<br><a href="page_{product_id}_{cat_id}/{page_name}?stpl=kits">Why Recommended</a></td>
+		</tr>
+	</table>
+</form>

@@ -1,0 +1,71 @@
+<!--jgallery category_detail.html-->
+<style media="screen,projection" type="text/css">
+	
+	/* BEGIN DEMO STYLE */
+	*{margin:0;padding:0}
+	.caption{font-style:italic;color:#887;}
+	.demo{position:relative;margin-top:2em;}
+	.gallery_demo{width:440px;margin:0 auto;}
+	.gallery_demo li{width:68px;height:50px;border:3px double #111;margin: 0 2px;background:#000;}
+	.gallery_demo li div{left:240px}
+	.gallery_demo li div .caption{font:italic 0.7em/1.4 georgia,serif;}
+	
+	#main_image{margin:0 auto;height:300px;width:440px;background:white;text-align:center;}
+	/*#main_image img {margin-bottom:10px;}*/
+	
+	.nav{padding-top:15px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
+	
+	/*.info{text-align:left;width:700px;margin:30px auto;border-top:1px dotted #221;padding-top:30px;}*/
+	/*.info p {margin-top:1.6em;}*/
+	
+    </style>
+
+<script type="text/javascript">
+
+jQuery(function($) {
+		
+		$('.gallery_demo_unstyled').addClass('gallery_demo'); // adds new class name to maintain degradability
+		
+		$('ul.gallery_demo').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			show			: 0,
+			debug			: true,
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+
+				// fade in the image & caption
+				if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+					image.css('display','none').fadeIn(1000);
+				}
+				caption.css('display','none').fadeIn(1000);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			
+		});
+	});
+	
+</script>
+
+
+
+		<h1>Galleria Demo 01</h1>
+<div class="demo">
+<div id="main_image"></div>
+<ul class="gallery_demo">
+	<!--insert|items|{cat_id}||<li><img src="<<product_image3>>" alt="<<product_name>>" title="<<blurb1>>"></li>|20|||-->
+</ul>
+<p class="nav"><a href="#" onclick="$.galleria.prev(); return false;">&laquo; previous</a> | <a href="#" onclick="$.galleria.next(); return false;">next &raquo;</a></p>
+</div>
+<!--jgallery category_detail.html-->

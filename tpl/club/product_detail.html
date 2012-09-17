@@ -1,0 +1,27 @@
+<!--product_detail.html-->
+<!--SET SBWIDTH==sidebarwide-->
+<!--SET SBTOP==<div class="blk"><h1>{parent.cat_name}</h1><img src="images/navtop_blk.gif" width="210" height="38" border="0" alt=""><ul class="">-->
+<!--SET SIDEBARNAV==insert|categories|{parent_id}||<li><a href="<<link_action>>"><<cat_name>></a></li>|20|||-->
+<!--SET SBBTM==</ul></div>-->
+<!--SET MAINCONTENT==contentnarrow-->
+<!--SET BREADCRUMB==-->
+
+
+<table class="table_nomargin" style="margin-bottom:10px">
+	<tr valign="top">
+		<td align="left" style="width:350px"><h1>{product_name}</h1>
+{blurb1}<p>{cat_blurb1}</td>
+
+		<td align="left" style="padding-left:10px">
+	 <!--{product_flag3}_on<div class="flag">New!</div>{product_flag1}_on--> 
+		<!--{free_shipping}_on<div class="freeship">Ships Free!</div>{free_shipping}_on-->
+		
+
+				
+		{ADDTOCART}
+		</td>
+	</tr>
+</table>
+	
+
+<!--/product_detail.html-->

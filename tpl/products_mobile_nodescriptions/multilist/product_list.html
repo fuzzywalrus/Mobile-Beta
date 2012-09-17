@@ -1,0 +1,37 @@
+<!--products no descriptions multilist product_list.html-->
+
+
+<h1>{cat_name}</h1>
+<div class="inventorymessage">{MESSAGE}</div>
+
+
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<div>
+	<!-- NAME: product_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+
+	{PRODUCTCELL}
+
+
+	<!-- END DYNAMIC BLOCK: product_list_row -->
+	<!-- END: product_list.html -->
+</div>
+
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		$('.hidabledescription').each(function() {
+			$(this).parent().parent().remove();
+		});
+	});
+		
+</script>
+<script>
+	$(document).ready(function() {
+		$(".ui-radio").addClass("radio-choice-1").removeClass("ui-radio");
+	});
+</script>
+<!--/products no descriptions product_list.html-->

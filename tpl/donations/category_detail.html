@@ -1,0 +1,27 @@
+<!--Popup window for donation submissions-->
+	<form action="saveform" method="POST" class="fancyform" enctype="multipart/form-data">
+			<input type = "hidden" name = "required" value = "captcha"> 
+		  <!--note: set the product review category id number in BOTH main tempaltes-->
+			<input type="hidden" name="main_cat_id" value="{DONATIONCAT}">
+			<input type="hidden" name="custom1" size="30" maxsize="50" value = "{myproductid}">
+<!--insert|product|{myproductid}||<h2 style="margin-bottom:15px">Make a Donation : <<product_name>></h2><input type="hidden" name="product_name" value="<<product_name>>"><input type="hidden" name="custom4" value="<<custom4>>"><input type="hidden" name="custom5" value="<<custom5>>">|--> 			
+
+<p><label>Your Name:</label><input type="text" name="custom2" size="40" maxsize="50" value = "{custom4}"></p>
+
+<p class="rightcolumn">As you would like it to appear on the website</p>
+
+<p><label>Dollar Donation Amount:</label>$<input type="text" name="number1" size="5" maxsize="50" value = "{number1}"></p>
+	
+<p><label>Good/Services Donation:</label><textarea name="blurb1" cols="40" rows="4" wrap="VIRTUAL"></textarea></p>
+
+<p><label>Your Email Address:</label> <input type = "text" size = "40" name = "email_address"></p>
+
+<p class="rightcolumn">We will only use your email address to contact you regarding your donation, if necessary.</p>
+	
+<p class="rightcolumn" style="margin-top:12px;margin-bottom:0px"><img name="verify" src ="{RELATIVEURL}/home/{STOREID}/randomimage.gif" border="1"></p>
+
+<p><label>Verification Code:</label> <input type ="text" id = "Verification Code" name="captcha" value = ""></p>
+<p class="rightcolumn">(Enter the numbers in the box above, required)</p>
+
+<p><label>&nbsp;</label> <input type="Submit"  class="cartbutton cartbutton_forwardsml" name="submit" value="Submit Your Donation"></p>
+</form>

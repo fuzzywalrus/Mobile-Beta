@@ -1,0 +1,26 @@
+<!--Account_error-->
+
+<h1>Account Error</h1>
+
+<p>We're sorry, we encountered the following error while trying to save your account information:</p>
+<p>{MESSAGE}</p>
+
+<p>Please try again.</p>
+
+<form action="{FORMACTION}" method="post">{POSTEDFIELDS}
+	<div class="form">
+			<label for="Account Name">Username</label>
+			<input type="text" name="account_name" value="{account_name}" data-mini="true"  id="Account Name" /><br/>
+			<span class="smallNotes">(Letters and numbers only)</span>
+
+			<label for="account_password">Password</label>
+			<input type="password" name="account_password" value="{account_password}" data-mini="true" id="Account Password"/>
+		
+			<label for="Verify_Password">Re-enter Password</label>
+			<input type="password" name="Verify_Password" data-mini="true" id="Verify Password" >
+			<input type="submit" name="Continue" value="Make Changes"/>
+
+	</div>
+</form>
+
+<!--/Account_error-->

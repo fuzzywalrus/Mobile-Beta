@@ -1,0 +1,79 @@
+<!--update_account.html-->
+
+<h1>Update Your Account</h1>
+
+<p>You may change any of the information below and click 'SAVE' to update your account.</p>
+
+<form action="updateaccount" method="post">
+	<h2 class="mrn">Account Name: {account_name}</h2>
+
+	<label for="account_company_name">Company:</label>
+	<input name="account_company_name" value="{account_company_name}"/>
+      
+	<label for="account_first_name">First Name:</label>
+	<input name="account_first_name" value="{account_first_name}"/>
+	
+	<label for="account_last_name">Last:</label>
+	<input name="account_last_name"  value="{account_last_name}"/>
+
+	<label for="account_email_address">Email:</label>
+	<input name="account_email_address"  value="{account_email_address}"/>	
+	<hr>
+	
+	<a name="billing"></a><h2>Billing Address</h2>
+		
+	<label for="account_telephone">Phone:</label>
+	<input name="account_telephone"  value="{account_telephone}"/>
+	
+	<label for="account_address1">Address:</label>
+	<input name="account_address1" value="{account_address1}"/>
+	
+	<div data-role="fieldcontain" class="ui-hide-label">
+		<label for="account_address2">Address Line 2:</label>
+		<input name="account_address2" value="{account_address2}"/>
+	</div>
+
+	<label for="account_city">City:</label>
+	<input name="account_city" value="{account_city}"/>
+	
+	<label for="account_state">State:</label>
+	<input name="account_state" value="{account_state}" size="2" maxlength="2"/>
+	
+	<label for="account_zip">Zip:</label>
+	<input name="account_zip" value="{account_zip}"/>
+	
+	<label for="account_country">Country:</label>
+	<input name="account_country" value="{account_country}" size="2" maxlength="2"/>
+
+	<hr>
+	
+	<a name="shipping"></a><h2>Shipping Address</h2><
+	
+	<label for="account_stelephone">Phone:</label>
+	<input name="account_stelephone" value="{account_stelephone}"/>
+	
+	<label for="account_saddress1">Address:</label>
+	<input name="account_saddress1" value="{account_saddress1}"/>
+	
+	<div data-role="fieldcontain" class="ui-hide-label">
+		<label for="account_saddress2">Address:</label>
+		<input name="account_saddress2" value="{account_saddress2}"/>
+	</div>
+	
+	<label for="account_scity">City:</label>
+	<input name="account_scity" value="{account_scity}"/>
+	
+	<label for="account_sstate">State:</label>
+	<input name="account_sstate" value="{account_sstate}" size="2" maxlength="2"/>
+	
+	<label for="account_szip">Zip:</label>
+	<input name="account_szip" value="{account_szip}"/>
+	
+	<label for="account_scountry">Country:</label>
+	<input name="account_scountry" value="{account_scountry}" size="2" maxlength="2"/>
+	
+	<input type="submit" name="save" value="Save Changes" />
+	
+</form>
+
+<!--/update_account.html-->

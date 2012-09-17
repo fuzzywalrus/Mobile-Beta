@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0"
+xmlns:c="http://base.google.com/cns/1.0"
+xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<atom:link href="{SELF}" rel="self" type="application/rss+xml" />
+<title>{store_name}</title>
+<description>{meta_description}</description>
+<link>{BASEURL}</link>
+	<!-- NAME: feed_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: feed_list_row -->
+	{PRODUCTCELL}{OPTIONCELL}
+	<!-- END DYNAMIC BLOCK: feed_list_row -->
+	<!-- END: feed_list.html -->
+</channel>
+</rss>

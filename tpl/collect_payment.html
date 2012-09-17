@@ -1,0 +1,71 @@
+<!--confirmorder.html this is for the retail side-->
+<!--SET CARTINFO==-->
+<!--SET MINICART==-->
+<div>Step 1: <a href="checkout"><span style="font-weight:400;">Billing/Shipping Info</span></a></div>
+<br>
+<div><strong>Step 2: Payment</strong></div>
+
+<h1>Order Summary and Payment</h1>
+
+<p>Please review your billing and shipping information and order summary below. If everything is correct, enter your payment information and click Submit My Order.</p>
+
+{PAYMENTSECTION}
+
+
+<h2>Order Summary</h2>
+
+<b>Bill To:</b> 
+<br>
+{First_Name} {Last_Name} 
+<!--<br>{Company_Name}-->
+<br>
+{Address1} {Address2} 
+<br>
+{City}, {State} {Zip} {Country}
+</p>
+<b>Ship To:</b> 
+<br>
+{sFirst_Name} {sLast_Name}
+<!--<br>{sCompany_Name}--> 
+<br>
+{sAddress1}	{sAddress2} 
+<br>
+{sCity}, {sState} {sZip} {sCountry}
+</p>
+
+<b>Comments:</b> 
+<br/>
+{Comments}
+</p>
+
+<b>Gift Message:</b> 
+<br/>
+{Gift_Message}
+
+<form action="makechanges" method="POST">
+<p class="mrn">Need to change your billing or shipping information?</p>{POSTEDFIELDS}
+<p><input type="submit" name="submit" data-theme="e" value="Make Changes"/></p>
+</form>
+
+<!--from confirm_cart_list.html-->
+<div id="cartcontent">
+{ORDERSUMMARY}
+</div>                     
+<!--/from confirm_list_.html-->
+
+
+
+
+<!--==========================-->
+<!-- Mobile Submit Button Fix -->
+<!--==========================-->
+<script>
+   	$('input').removeClass('cartbutton ui-btn-hidden');
+	$(document).ready(function() {
+  	  $(".continue div").removeClass('ui-btn-up-c').addClass('ui-btn-up-b').attr('data-theme', 'b');;
+	});
+</script>
+ 
+
+
+

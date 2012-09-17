@@ -1,0 +1,77 @@
+<!--contact_main.html-->
+<!--SET CANONICAL==/home/{STOREID}/{THISPAGE}-->
+<div class="line">
+
+<div class="unit size2of3">
+<div class="line">
+<div class="unit size1of3">&nbsp;</div>
+<div class="unit size2of3 lastUnit">
+    <div class="mod man">
+        <div class="inner">
+            <div class="hd"><h1>Contact Us</h1></div>
+            <div class="bd">{homepage_text}</div>
+        </div>
+    </div>
+</div>
+</div><!--/line-->
+
+ <div class="form">
+    
+    <form action="{RELATIVEURL}/images-mm/mmprocess.php" method="post" onSubmit ="return validate_form(this)" class="fancyform" style="margin-top:15px">
+
+        <input type="Hidden" name="receiver_list" value="{CODED_EMAIL}"/>
+               
+        <input type="Hidden" name="response_location" value="{RELATIVEURL}/home/{SESSION}/thankyou_main.html"/>
+               
+        <input type="Hidden" name="required" value="Name,Email_Address,Comments,captcha"/>
+               
+        <input type="Hidden" name="email_subject" value="{store_name} Inquiry"/>
+        <input type="Hidden" name="source" value="{SOURCE}"/>
+                
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Name:</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text" name="Name" size="30" class="fullwidth"/></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Company:<br>(if applicable)</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text" name="Company" size="30" class="fullwidth"/></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Email:</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text" name="Email_Address"  size="30" maxlength="100" class="fullwidth"/></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Phone:</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text"  name="Phone" size="30" class="fullwidth"/></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Preferred Contact Method:</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type=radio class="noborder" name="ReturnBy" value="Email">Email &nbsp;  &nbsp; <input type=radio class="noborder" name="ReturnBy" value="Phone"/>Phone</div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Where did you hear about us?</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text" name="Source" size="30" class="fullwidth"/></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label>Your Questions or Comments:</label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><textarea name="Comments"  cols="35" rows="10" wrap="virtual" class="fullwidth"></textarea></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR"><div class="inner"><label><img name="captcha" src="{RELATIVEURL}/images-mm/mmprocess.php?image=1" border="1"/></label></div></div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="text" id="Verification Code" name="captcha" size="10" class="mrs"/>&nbsp;<span class="notes">Type the numbers at left (required)</span></div></div>
+        </div>
+        <div class="line">
+            <div class="unit size1of3 txtR">&nbsp;</div>
+            <div class="unit size2of3 lastUnit"><div class="inner"><input type="submit" name="submit" value="Submit" class="button action"></div></div>
+        </div>         
+    </form>
+    
+    </div><!--/form-->
+</div>
+<div class="unit size1of3 lastUnit txtR">
+	<h1>Where to find Us</h1>
+	{store_address}
+    <p>{store_phone1}<br/>
+    {store_phone2}</p>
+</div>
+<!--/contact_main.html-->

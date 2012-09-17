@@ -1,0 +1,51 @@
+<!-- Thank You -->
+<!-- this is the browser page that is displayed after the user processes their order -->
+<!--SET CARTINFO==-->
+<!--pmt_paypal <div class="stepson">Step 3: Complete Your PayPal Payment</div>
+<p> pmt_paypal-->
+
+<h1>Thank You</h1>
+{thankyou_message}
+<p>
+{html_payment_text}
+
+<!--pmt_paypal <h3>Complete your order using PayPal</h3>
+
+In order to complete your order using PayPal, you must click the button below and complete the PayPal order form.<p>
+
+<span class="errormessage">Your order is not complete until you click the link below and pay at the PayPal site.</span>
+<div align="center">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="POST"> 
+<input type="hidden" name="cmd" value="_ext-enter">
+<input type="hidden" name="redirect_cmd" value="_xclick">
+<input type="hidden" name="bn" value="mightymerchant">
+<input type="hidden" name="return" value="{BASEURL}/home/{STOREID}/thankyou">
+<input type ="hidden" name="quantity" value="1">
+<input type="hidden" name="business" value="{paypal_id}">
+<input type="hidden" name="item_name" value="{store_name} Website Order">
+<input type="hidden" name="item_number" value="{seq_no}">
+<input type="hidden" name="amount" value="{paypal_total}">
+<input type="hidden" name="shipping" value="{n_shipping}">
+<input type="hidden" name="first_name" value="{First_Name}">
+<input type="hidden" name="last_name" value="{Last_Name}">
+<input type="hidden" name="address1" value="{Address1}">
+<input type="hidden" name="address2" value="{Address2}">
+<input type="hidden" name="city" value="{City}">
+<input type="hidden" name="state" value="{State}">
+<input type="hidden" name="zip" value="{Zip}">
+<input type="hidden" name="country" value="{Country}">
+<input type="image" SRC="{SECUREURL}/images-mm/complete_paypal.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+</div> pmt_paypal-->
+
+<h2>Order Summary</h2>
+<b>Order No:</b> {seq_no}<br>
+<b>Payment Method:</b> {Payment_Method}<br>
+<b>Shipping Method:</b> {method}<p>
+<div>{HTMLORDERSUMMARY}</div>
+
+
+  <br>{tracking_html}
+
+<div style="margin-top:25px"><a href="{BASEURL}">Back to Home Page</a></div>
+<!-- /Thank You -->

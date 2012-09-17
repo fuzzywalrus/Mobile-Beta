@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel=stylesheet type="text/css" href="{BASEURL}/stylesheet_email.css">
+</head>
+
+<body style="background:#ffffff url({RELATIVEURL}/images-mm/cleardot.gif);padding:10px">
+
+<!--this email is sent to the customer when ordering-->
+<div align="center"><img name="logo" src="{BASEURL}/images/email_logo.jpg" border="0" alt=""></div>
+<b>Dear {First_Name},</b>
+
+<p>{email_message}
+
+<p>{html_payment_text}
+<!--pmt_paypal
+<h2>Complete your order using PayPal</h2>
+If you have not already visited the PayPal site online regarding this order, please click the link below to complete your order.
+
+<h2>Your order is not complete until you pay at the PayPal site.</h2>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amount={paypal_total}&business={paypal_id}&item_name={store_name}+Website+Order&shipping={n_shipping}&first_name={First_Name}&last_name={Last_Name}&address1={Address1}&address2={Address2}&city={City}&state={State}&zip={Zip}&country={Country}&item_number={seq_no}&quantity=1&nbn=mightymerchant&return={BASEURL}/home/{STOREID}/thankyou"><b>Complete Your Paypal Payment</b></a><p> pmt_paypal-->
+
+<br>Below is your order confirmation. If you have any questions, please call us at {store_phone1}, or email us at {info_email}.
+<hr>
+<b>Order No:</b> {seq_no} <br>
+<b>Payment Method:</b> {Payment_Method}<br>
+<b>Shipping Method:</b> {method}<p>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td align="left" style="width:50%;padding-right:10px;padding-bottom:10px">
+
+<b>Bill To:</b><br>
+{Company_Name}<br>
+{First_Name} {Last_Name}<br>
+{Address1}<br>
+{Address2}<br>
+{City},{State} {Zip} {Country}</td>
+		<td align="left" style="width:50%;padding-left:10px;padding-bottom:10px">
+
+<b>Ship To:</b><br>
+{sCompany_Name}<br>
+{sFirst_Name} {sLast_Name}<br>
+{sAddress1}<br>
+{sAddress2}<br>
+{sCity}, {sState} {sZip} {sCountry}</td>
+	</tr>
+	<tr valign="top">
+		<td align="left" style="padding-right:10px"><b>Comments:</b><br>{Comments}</td>
+		<td align="left" style="padding-left:10px">
+Understand ordering process: {understand_ordering}<br>
+Send email with shipping charges when shipped: {notify_after_ship}<br>
+Okay to split orders: {split_orders}</td>
+	</tr>
+</table>
+
+<h4>Order Summary</h4>
+
+
+{HTMLORDERSUMMARY} 
+<!--giftcerts <p>Amount left on gift certificate (if applies): {gift_left} giftcerts-->
+<p>
+<b>Shipping Notes</b><br>
+{shipping_notes}<br>
+{ship_note}<p>
+{store_name}<br>
+<a href = "mailto:{info_email}">{info_email}</a><br>
+<a href = "{BASEURL}">{BASEURL}</a>
+</body>
+</html>
+

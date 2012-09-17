@@ -1,0 +1,50 @@
+<!--orderhistory_list.html-->
+<!--SET CARTINFO==-->
+<h1>Welcome, {account_first_name}</h1>
+<!--<a href="upstrack">Track My UPS Order</a> | <a href="updateaccount_main.html">Update My Account</a> | --><a href="update_password_main.html">Update My Password</a> | Updates to other account information can be made during the checkout process.
+
+<table class="table_margintop">
+	<tr valign="top">
+		<td align="left" width="65%" class="accountform"><h2 style="margin-top:0px">Account Information</h2>
+		<p><label>Company:</label>{account_company_name}</p>
+		<p><label>Name:</label>{account_first_name} {account_last_name}</p>
+		<p><label>Email:</label>{account_email_address}</p>
+		<p style="margin-bottom:15px"><label>Account Name:</label>{account_name}</p>
+		<b>Bill To:</b><br>
+		{account_address1} {account_address2}<br>
+		{account_city} {account_state} {account_zip}<br>
+		Phone: {account_telephone}<p>
+		<b>Ship To:</b><br>
+		{account_saddress1} {account_saddress2}<br>
+		{account_scity} {account_sstate} {account_szip}<br>
+		Phone: {account_stelephone}
+		</td>
+		<td>
+		<!--dontinsert|items|1|flag1|table:specials|1|1||--></td>
+	</tr>
+</table>
+<hr>
+<h2>My Order History</h2>
+<table summary="product list" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+	<tr valign = "top">
+
+	<th align="left">Order No</th><th align="left">Date Ordered</th><th align="left">Status</th><th align="left">Total Charge</th><th align="left">Details</th>
+	</tr>
+	<!-- NAME: orderhistory_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: orderhistory_list_row -->
+
+	<tr valign = "top">
+	<td align="left">{seq_no}</td><td align="left">{date_ordered}</td><td align="left">{public_status}</td><td align="left">{total_charge}</td>
+
+<td align="left"><a href = "orderhistorydetails?order_id={order_id}">View</a></td>
+	</tr>
+
+
+	<!-- END DYNAMIC BLOCK: orderhistory_list_row -->
+	<!-- END: orderhistory_list.html -->
+
+</table>
+
+
+<!--/orderhistory_list.html-->

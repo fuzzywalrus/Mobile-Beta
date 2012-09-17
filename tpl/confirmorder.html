@@ -1,0 +1,89 @@
+<!--confirmorder.html this is for the retail side-->
+
+<!--SET CARTINFO==-->
+<div class="steps">Step 1: Billing/Shipping Info</div>
+<div class="stepson">Step 2: Payment</div><p>
+<h1>Order Summary and Payment</h1>
+			<div class="errormessage" align="center">
+				{MESSAGE}
+			</div>
+			<span class="instructions">Please review your billing and shipping information and order summary below. If everything is correct, enter your payment information at the bottom of the page and click Submit My Order.</span> 
+			
+<div id="cart">
+<table class="tablecart">
+	<tr valign="top">
+		<td width="50%" align="left" style="padding-top:15px">
+			<b>Bill To:</b> 
+			<br>
+			{First_Name} {Last_Name} 
+			<!--<br>{Company_Name}-->
+			<br>
+			{Address1} {Address2} 
+			<br>
+			{City}, {State} {Zip} {Country}
+		</td>
+		<td width="50%" align="left" style="padding-top:15px">
+			<b>Ship To:</b> 
+			<br>
+			{sFirst_Name} {sLast_Name}
+			<!--<br>{sCompany_Name}--> 
+			<br>
+			{sAddress1}	{sAddress2} 
+			<br>
+			{sCity}, {sState} {sZip} {sCountry}
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="50%" align="left" style="padding-top:15px">
+			<b>Comments:</b> 
+			<br>
+			{Comments} 
+		</td>
+		<td width="50%" align="left" style="padding-top:15px">
+			<b>Gift Message:</b> 
+			<br>
+			{Gift_Message} 
+		</td>
+	</tr>
+	<tr valign="top">
+		<td colspan = "2" width="100%">
+		<hr>
+			<form action="makechanges" method="POST">
+			Need to change your billing or shipping information? <input type="submit" class="cartbutton cartbutton_back" name="submit" value="Make Changes"> {POSTEDFIELDS} 
+			</form>
+		<hr>
+		</td>
+	</tr>
+
+</table></div>
+<h3>Order Summary</h3> 
+
+
+<form action="processorder" method="POST" name="process" onSubmit="return check_required('process')">
+		
+	<!--from confirm_cart_list.html-->
+			<div id="cartcontent">
+			{ORDERSUMMARY}
+			</div> 
+	<!--/from confirm_list_.html-->
+			
+			{POSTEDFIELDS} 
+					
+						<h3>Enter Payment Information</h3> 
+						
+							This order form is on a secure web server to protect your credit card information.<br>
+							<br>
+							<span class="cartinstructions">{PMTCHECKBOX}</span>
+							<div align="center">{PAYMENTSECTION}</div>
+							<input type="hidden" name="required" value="Payment_Method">
+					
+			<br>
+			Order processing normally takes 10-20 seconds but can take up to a minute. Once you submit your order you will either see a message indicating that your order was processed successfully or a message indicating that your credit card was not accepted. If you have questions about the success of your order, please <a href="contact_main.html">email us</a>. 
+<div align="right">
+			<div id="after_submit" style="visibility:hidden">
+			<b>Processing...</b>
+		  	</div> 			
+		  	<div id="before_submit" class="continue">
+          		<input type="submit" name="submit" value="Submit My Order" data-theme="e" />
+		  	</div></div>
+</form>

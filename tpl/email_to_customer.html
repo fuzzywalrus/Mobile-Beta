@@ -1,0 +1,43 @@
+<!--this email is sent to the customer when ordering-->
+Dear {First_Name},
+
+{email_message}
+
+{payment_text}
+
+<!--pmt_paypal You have chosen PayPal as your payment method. If you have not already done so, please go to the PayPal site and complete the payment for your order. IF YOU DO NOT GET AN EMAIL FROM PAYPAL CONFIRMING YOUR PAYMENT, THEN WE DID NOT RECEIVE PAYMENT FOR YOUR ORDER. Logon to paypal at https://www.paypal.com and send the amount due to {paypal_id}.  pmt_paypal-->
+
+Below is your order confirmation. If you have any questions, please call us at {store_phone1} or email us at {info_email}.
+
+-----------------------------------------------------------------------------
+Order No: {seq_no} 
+
+Bill To:
+{Company_Name}
+{First_Name} {Last_Name}
+{Address1}{Address2}
+{City},{State} {Zip} {Country}
+
+Ship To:
+{sCompany_Name}
+{sFirst_Name} {sLast_Name}
+{sAddress1}{sAddress2}
+{sCity}, {sState} {sZip} {sCountry}
+
+Comments: {Comments}
+
+Payment Method: {Payment_Method}
+Shipping Method: {method}
+Understand ordering process: {understand_ordering}
+Send email with shipping charges when shipped: {notify_after_ship}
+Okay to split orders: {split_orders}}
+-------------------------------Order Summary---------------------------------
+{ORDERSUMMARY} 
+-----------------------------------------------------------------------------
+Shipping Notes
+{shipping_notes}
+{ship_note}
+
+{store_name}
+Phone: {store_phone1} | {store_phone2}
+{info_email}

@@ -1,0 +1,29 @@
+<!--beasponsor product_list.html-->
+
+<div class="container">
+	<div style="width:75%;float:left">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px">
+		<tr valign="top">
+			<td align="left"><h1>{product_name}</h1>
+			
+<b>Type of Donation:</b><!--{product_flag1}_on<p>Dollar Amount Needed: ${custom3}{product_flag1}_on--><!--{product_flag2}_on , will be returned if goal not met {product_flag2}_on-->
+<!--{product_flag3}_on<p>Goods or Services Needed (see details below){product_flag3}_on-->
+<p><b>Date Needed By:</b> {custom2}<p>
+	<b>Recipient:</b> {custom1}<p><a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/cpage_{DONATIONCAT}/make_a_donation.html?myproductid={product_id}','newin','toolbar=no,left=0,top=0,location=top,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=650,height=540')"><b>Make a Donation</a></b></td>
+			<td align="right"><img src="{product_image1}" border="0" alt="{SEO_TITLE}"></td>
+		</tr>
+	</table>
+	<b>Full Description:</b> {blurb1}
+	<h2 style="margin-top:15px">Current Donations</h2><hr>
+	<!--insert|data|products|custom1={product_id} && hide_product = 'N'|<b>Dollar Donation Amount:</b> $<<number1>><br><b>Goods/Services Donation:</b> <<blurb1>><br><b>Donated by:</b> <<custom2>><hr>|-->
+	
+	<a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/cpage_{DONATIONCAT}/make_a_donation.html?myproductid={product_id}','newin','toolbar=no,left=0,top=0,location=top,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=650,height=540')"><b>Make a Donation</a></b>
+
+
+	</div><!--/left-->
+	<div style="width:20%;float:right"><h2>How it Works</h2>{cat_blurb2}</div><!--/right-->
+	<div class="clear"></div>
+
+</div><!--/container-->
+
+<!--/beasponsor product_list.html-->

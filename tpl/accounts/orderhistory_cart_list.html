@@ -1,0 +1,96 @@
+<!--orderhistory_cart_list.html-->
+<!--SET CARTINFO==-->
+<p><a href="orderhistory">My Account</a> &gt; Order History &gt; Order {seq_no}</p>
+
+<form method="POST" action="reorder">
+	<input type="hidden" name="order_id" value="{order_id}"/>
+    
+<h1>Order No. {seq_no}</h1>
+
+<!--insert|data|shipping_history|sh_order_no = {order_no}|<div class="mod message success"><div class="bd"><p class="floatRight"><a href="upstrack?tn=<<sh_tracking_no>>" class="button">Track this Shipment</a></p><p>Shipped: <<sh_date_shipped>><br>Tracking No.: <a href="upstrack?tn=<<sh_tracking_no>>"><<sh_tracking_no>></a></p></div></div>|||||-->
+
+<p>{bill_to}</p>
+<p>{ship_to}</p>
+
+
+<div class="data mam">
+<table class="order fullwidth">
+<tr>
+	<th width="65%">
+		Item
+	</th>
+	<th width="10%">
+		Qty
+	</th>
+	<th width="10%" class="txtR">
+		Price
+	</th>
+	<th width="15%" class="txtR">
+		Ext. Price
+	</th>
+</tr>
+
+<!-- NAME: orderhistory_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: orderhistory_cart_list_row -->
+
+	<tr class="txtT"> 
+	<td><span class="sku">{catalog_id}</span>&nbsp;<span class="cartproduct"><a href = "page_{product_id}">{product_name}</a></span><br>&nbsp;&nbsp;{options1} {options2} {options3}</td>
+	<td>
+		{qty}
+	</td>
+	<td class="txtR">
+		{price}
+	</td>
+	<td class="txtR">
+		{extended_price}
+	</td>
+	</tr>
+
+	<!-- END DYNAMIC BLOCK: orderhistory_cart_list_row -->
+	<!-- END: orderhistory_cart_list.html -->
+
+<tr class="txtR">
+	<td colspan="3">
+		Total Price:
+	</td>
+	<td>
+		{total_price}
+	</td>
+</tr>
+
+<tr class="txtR">
+	<td colspan="3">
+		Shipping:
+	</td>
+	<td>
+		{ship_charge}
+	</td>
+</tr>
+
+<tr class="txtR">
+	<td colspan="3">
+		Discounts:
+	</td>
+	<td>
+		{discounts}
+	</td>
+</tr>
+
+<tr class="txtR">
+	<td colspan="3">
+		Total Charges:
+	</td>
+	<td>
+		{total_charge}
+	</td>
+</tr>
+
+</table>
+</div>
+
+<p class="txtR"><input type="submit" name="submit" value="Reorder" class="button action"/></p>
+</form>
+
+
+
+<!--/orderhistory_cart_list.html-->

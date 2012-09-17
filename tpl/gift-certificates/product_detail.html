@@ -1,0 +1,107 @@
+<h2>{cat_name}</h2>
+			<span class="message">{MESSAGE}</span>
+      
+        	<p>{blurb1}
+        </p>
+        <p>
+        	<b>Ordering a gift certificate is easy! Just follow these steps:</b>
+        </p>
+        <p>
+        <ol>
+          <li>Fill out the Gift Certificate below
+          <li>Tell us how you want your Gift Certificate delivered.
+          <li>Proceed to Checkout. Once your payment is approved, we will send you an email confirming your gift, with instructions on how the recipient can shop on our site.
+        </ol>
+        </p>
+				<h2>Step 1: Fill Out Your Gift Certificate</h2>
+
+				<form action="addtocart" method="post" name="gift-certificate" class="fancyform" onSubmit="return validate_form(this)">
+					<input type = "hidden" name = "required" value = "certificate_to,certificate_from,value,delivery_method">
+					<input type = "hidden" name="product_id" value = "{product_id}">
+					<input type = "hidden" name="qty" value = "1">
+				<div class="certificate">
+					<div align="center">
+						<img src="images/giftcertificate_logo.jpg" border="0">
+				<h2>A Gift Certificate from {store_name}</h2></div>
+			
+				<p><label>To</label><input type="text" id="Certificate To" name="db_certificate_to" value = "{certificate_to}"></p>
+				<p><label>Dollar Amount</label><!--{allow_price_override}_on<input type="text" name="item_price" value="{item_price}" size="4" onBlur="if(this.value < {minimum_price}) { alert('{minimum_price} minimum'); this.value = {minimum_price}; return false;}" /> {allow_price_override}_on--><!--{allow_price_override}_off {display_price} {allow_price_override}_off--></p>
+				<p><label>From</label><input type="text" id="Certificate From" name="db_certificate_from" value = "{certificate_from}"></p>
+				<p><label>Personal Note</label><textarea name="db_personal_note" rows="4" cols="30" style="margin-bottom:10px">{personal_note}</textarea></p>
+				
+				</div><!--/certificate-->
+	<h2>Step 2: Tell Us How You Would Like Your Gift Certificate Delivered</h2>			
+				<table>
+	<tr>
+		<td>
+			<input type="radio" name="db_delivery_method" value="eMail to Recipient"><b>Send via eMail to the recipient</b>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="right">
+			Email Address: 
+		</td>
+		<td align="left">
+			<input type="Text" name="db_to_email_address" value="{to_email_address}"> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="radio" name="db_delivery_method" value="Mail to Recipient"><b>Send via US Mail to the recipient</b> 
+		</td>
+	<td>&nbsp;</td>
+	<tr>
+		<td align="right">
+			Address: 
+		</td>
+		<td align="left">
+			<input type="Text" name="db_to_address" value="{to_address}"> 
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			City: 
+		</td>
+		<td align="left">
+			<input type="Text" name="db_to_city" value="{to_city}"> 
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			State: 
+		</td>
+		<td align="left">
+			<input type="Text" name="db_to_state" value="{to_state}" size="2" maxlength="2"> 
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			Zip: 
+		</td>
+		<td align="left">
+			<input type="Text" name="db_to_zip" value="{to_zip}"> 
+		</td>
+	</tr>
+	</tr>
+	<tr>
+		<td>
+			<input type="radio" name="db_delivery_method" value="eMail to Buyer"><b>Send via eMail to me</b>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="radio" name="db_delivery_method" value="Mail to Buyer"><b>Send via US Mail to me</b> 
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	</td>
+	</tr></table>
+	<h2>Step 3: Click <input type="submit" name="Buy" class="cartbutton cartbutton_forwardsml" value="Add to Cart"></h2>
+				
+				
+			</form>
+Once your payment is approved, we will send you an email confirming your gift, with instructions on how the recipient can shop on our website or stores.				
+		
+

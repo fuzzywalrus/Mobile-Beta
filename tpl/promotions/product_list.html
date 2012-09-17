@@ -1,0 +1,28 @@
+<!--promotions product_list.html-->
+
+<h1>Sales &amp; Promotions</h1>
+
+<!--insert|category|504||<<cat_blurb1>>|-->
+<div class="container" style="margin-top:15px">
+	<div style="width:45%;float:left"><h2>Sale Items</h2>
+	<!--insert|items|806||<div style="margin-bottom:4px"><a href="page_<<product_id>>/<<page_name>>"><<product_name>></a></div>|100|||--></div>
+	<div style="width:45%;float:right"><h2>Discontinued Items</h2>
+
+<table class="table_nomargin" cellspacing="0">
+
+	<!-- NAME: product_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+
+	<tr valign = "top">
+	{PRODUCTCELL}
+	</tr>
+
+
+	<!-- END DYNAMIC BLOCK: product_list_row -->
+	<!-- END: product_list.html -->
+</table></div>
+<div class="clear"></div>
+</div><!--/containter-->
+<div class="nextprevbottom">{PREV}{PAGES}{NEXT}</div>
+
+<!--/promotions product_list.html-->

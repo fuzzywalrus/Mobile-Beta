@@ -1,0 +1,75 @@
+<!--signup.html-->
+<h1>Sign Up for a {store_name} Account</h1><p>
+Please submit the following information to create your account.
+<form action = "newaccount" name="newaccountform" method = "post" class="accountform" style="margin-top:15px" onSubmit ="return check_required('newaccountform')">
+	<input type="hidden" name="account_active" value="Y">
+	<input type="hidden" name="required" value="first_name,last_name,Email_Address,captcha">
+
+	<label for="first_name">First Name:</label>
+	<input type="text" name="first_name" class="formborder" value="{first_name}">
+
+
+	<label for="last_name">Last Name:</label>
+	<input type="text" name="last_name" class="formborder" value="{last_name}">
+
+
+	<label for="Email_Address">Email Address:</label>
+	<input type="text" name="Email_Address" class="formborder" value="{Email_Address}">
+	<p>(This email address will be used to retrieve a forgotten password.)</p>
+
+
+	<label>Login User Name:</label>
+	<input type="text" name = "account_name" class="formborder" value ="{account_name}">
+	<p class="rightcolumn">(Letters and numbers only, no spaces)</p>
+
+
+	<label for="account_password">Password:</label>
+	<input type="password" name = "account_password" class="formborder" value = "{account_password}">
+
+	<p class="rightcolumn">(minimum 6 characters)</p>
+
+	<label for="Verify_Password">Re-enter Password:</label>
+	<input type="password" name="Verify_Password" class="formborder" onBlur="javascript: compare('orderform','account_password','Verify_Password')">
+
+	<label for="company_name">Company Name:</label>
+	<input type="text" name="company_name" class="formborder" value="{company_name}">
+
+
+	<label for="telephone">Phone:</label>
+	<input type="text" name="telephone" class="formborder" value="{telephone}">
+
+
+	<label for="address1">Address:</label>
+	<input type="text" name="address1" class="formborder" value="{address1}">
+
+	<div data-role="fieldcontain" class="ui-hide-label">
+		<label for="address2">Address 2:</label>
+		<input type="text" name="address2" class="formborder" value="{address2}">
+	</div>
+
+
+	<label for="city">City</label>
+	<input type="text" name="city" class="formborder" value="{city}">
+
+
+	<label for="state">State:</label>
+	<input type="text" name="state" class="formborder" value="{state}" size="2" maxlength="2">
+
+	<label for="zip">Zip:</label>
+	<input type="text" name="zip" class="formborder" value="{zip}">
+
+
+	<label for="country">Country:</label>
+	<input type="text" name="country" class="formborder" value="{country}" size="2" maxlength="2">
+
+	<img src = "home/{STOREID}/randomimage.gif" border = "1" align = "bottom"> 
+	
+	<label for="Verification Code">Verification Code:</label> 
+	<input type ="text" id = "Verification Code" name="captcha" value = "" />
+	
+	
+	<p>(Enter the numbers in the box above, required)</p>
+
+	<input type="submit" name="submit" class="cartbutton cartbutton_forwardsml" value="Create Account">
+</form>
+<!--/signup.html-->

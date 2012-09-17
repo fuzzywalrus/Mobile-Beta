@@ -1,0 +1,29 @@
+<!--product_list.html-->
+
+<h1>{cat_name}</h1>{cat_blurb1}
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<div class="container">
+	<div style="width:75%;float:left">
+
+<table class="table_margintop">
+
+	<!-- NAME: product_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+
+	<tr valign = "top">
+	{PRODUCTCELL}
+	</tr>
+
+
+	<!-- END DYNAMIC BLOCK: product_list_row -->
+	<!-- END: product_list.html -->
+</table>
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+	</div><!--/left-->
+	<div style="width:20%;float:right"><h2>How it Works</h2>{cat_blurb2}</div><!--/right-->
+	<div class="clear"></div>
+
+</div><!--/container-->
+
+<!--/product_list.html-->

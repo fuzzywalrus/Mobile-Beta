@@ -1,0 +1,44 @@
+<!--kits product_cell.html-->
+
+<div data-role="collapsible" data-content-theme="c" class="ui-collapsible">
+   <h3>{product_name}</h3>
+   <p>
+   
+   <a href="<<link_action>>">
+			<img data="happy" src="{RELATIVEURL}/{product_image1}" width="330px;"><br>
+		</a>
+			{ADDTOCART}
+		<hr>
+		
+   </p>
+</div>
+<!--/kits product_cell.html-->
+
+
+
+
+
+
+
+
+
+
+
+
+<td width="{TDWIDTH}" align="left" style="padding-bottom:15px">
+<form method="POST" action="addtocart">
+<input type="hidden" name="product_id" value="{product_id}">
+<input type="hidden" name="goto" value="samepage">
+<input type="hidden" name="related_id" value="{product_id}">
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr valign="top">
+			<td align="left" style="width:135px"><a href="{RELATIVEURL}/{product_image1}" rel="thumbnail" title="{product_name}"><img src="{th_product_image1}" border="0" alt=""></a></td>
+			<td align="left" style="width:255px;padding-right:15px"><a href="page_{product_id}_{cat_id}/{page_name}?stpl=kits"><b>{product_name}</b></a><br><span class="smallnotes">{catalog_id}</span><br>{blurb1}<p><b>Why Recommended:</b> {blurb2}</td>
+			<td align="right" style="padding-right:15px"><!--loggedin<!--{product_flag2}_off<strike>${price2}</strike><br>{product_flag2}_off-->loggedin--><!--loggedin<!--{product_flag2}_on {product_flag2}_on-->loggedin--><!--{product_flag2}_on<span class="onsale">On Sale</span><br>{product_flag2}_on-->${price}</td>
+			<td align="left" width="20%"><!--{stock_flag}_off Temporarily Out of Stock{stock_flag}_off-->{fancy_options}</td>
+			<td align="right"><!--{stock_flag}_on Qty: <input type="TEXT" class="formborder" size="2" name="qty" value=""><input type="image" src="/images/add.gif" width="37" height="21" value="Add to Cart" style="vertical-align:middle;margin-left:8px">{stock_flag}_on--><!--{stock_flag}_off <a href="page_{product_id}?stpl=inv&myid={product_id}">Request It!</a>{stock_flag}_off--></td>
+		</tr>
+		
+	</table>
+</form>
+</td>

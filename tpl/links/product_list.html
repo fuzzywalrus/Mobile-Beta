@@ -1,0 +1,40 @@
+<!--links product_list.html-->
+
+<div class="mod">
+	<div class="inner">
+    	<div class="hd">
+       		<h1>{cat_name}</h1>
+        </div>
+
+        <div class="bd">
+        	{cat_blurb1}
+          <!--<p><a href="submit_link_main.html">{cat_custom1}</a></p> -->
+        </div>
+        
+  </div>
+</div>
+
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<div class="mam">
+	<ul>
+    <!-- NAME: product_list.html -->
+    <!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+    
+    {PRODUCTCELL}
+    
+    <!-- END DYNAMIC BLOCK: product_list_row -->
+    <!-- END: product_list.html -->
+  </ul>
+</div>
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<script>
+
+$(document).ready(function() {
+	MM_removeEmptyImages('img');
+});
+
+</script>
+
+<!--/links product_list.html-->

@@ -1,0 +1,21 @@
+<!--product_detail.html-->
+
+<div class="jumptobox">See other items in this category: <form action="page" method="POST" style="display:inline;margin-left:6px">	
+				<select name="product_id" onChange="jumpTo('parent',this,0)" class="formborder">
+				<option value="0">Jump to...
+					<!--insert|items|{cat_id}||<option value="page_<<product_id>>"><a href = "page_<<product_id>>"><<product_name>></a>|50|||-->
+				</select></form></div>
+<h1>{product_name}</h1>
+<table class="table_nomargin">
+	<tr valign="top">
+		<td align="left"><img src="{product_image1}" border="0" alt="{SEO_TITLE}"><p>
+		{blurb1}<p><a href="{BASEURL}/{product_image2}">{custom1}</a></td>
+
+		<td align="left" style="padding-left:10px">
+		{blurb2}
+		</td>
+	</tr>
+</table>
+	
+
+<!--/product_detail.html-->

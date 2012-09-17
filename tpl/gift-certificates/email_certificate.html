@@ -1,0 +1,55 @@
+<html>
+<head>
+<!--<link rel=stylesheet type="text/css" href="{BASEURL}/stylesheet_email.css">-->
+<style type="text/css">
+a {
+	color: #9a2b1f; 
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #333; 
+	text-decoration: underline;
+}
+.certificate { 
+	width: 500px;
+	margin: 20px auto;
+	padding: 0px; 
+	border: 1px solid #000; 
+	background-color: #999; 
+}
+ 
+.certificate h2 {
+	margin-top: 0px;
+	padding-top: 5px;
+	padding-bottom:5px;
+	font-size: 16px;
+	font-weight: 400;
+	color: #9a2b1f;
+	background: #040707;
+}
+ 
+.certificate td { padding: 5px; color: #fff; }
+</style>
+</head>
+<body>
+<div align="center">
+
+<div class="certificate">
+					<div align="center"><img src="{BASEURL}/images/giftcertificate_logo.jpg" border="0">
+				<h2>A Gift Certificate from {store_name}</h2></div>
+				<div align="center">
+	<span class="highlight">This certificate entitles {certificate_to}
+			to ${value}</span><br />towards products available at {BASEURL}.<p>
+			{personal_note}<br><span class="highlight">From: {certificate_from}</span><p>
+			To redeem your gift certificate visit:<br /><a href ="{BASEURL}">{BASEURL}</a>
+
+<p>When you are done shopping on the site and ready to checkout,<br />enter this code in the area provided on the checkout form:<br /><b>{coupon_code}</b><hr>Or bring your gift certificate to one of these stores:<br>
+{store_address}<br>
+<span class="smallnotes">Check gift certificate value at {BASEURL}/home/{STOREID}/checkgift<br>Not redeemable for cash.</span>
+	</div>
+				
+				</div><!--/certificate-->
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel=stylesheet type="text/css" href="{BASEURL}/stylesheet_email.css">
+</head>
+
+<body style="background:#ffffff url({RELATIVEURL}/images-mm/cleardot.gif);padding:10px">
+<!--this email is sent to the vendor-->
+<p>
+<p> Mobile Site</p>
+<b>Date:</b> {DATE}
+<br>
+<b>Payment Method:</b> {Payment_Method}
+<br>Payment Status: {billing_status} / {transaction_status} <b>{avs} {cvv2}</b>
+<br>Shipping Method: {method} Delivery Type: {deliver_to}<br>
+Understand ordering process: {understand_ordering}<br>
+Send email with shipping charges when shipped: {notify_after_ship}<br>
+Okay to split orders: {split_orders}<br>
+Coupon code: {coupon_code}
+
+<p><b>Comments:</b> {Comments}
+
+
+<p>
+<br><b>Order No:</b> {seq_no} 
+<hr>
+<p><b>Bill To:</b>
+<br>{Company_Name}
+<br>{First_Name} {Last_Name}
+<br>{Address1}
+<br>{Address2}
+<br>{City},{State} {Zip} {Country}
+<br>{Telephone}
+<br>{Email_Address}<br>
+
+<hr>
+
+<p><b>Ship To:</b>
+<br>{sCompany_Name}
+<br>{sFirst_Name} {sLast_Name}
+<br>{sAddress1}
+<br>{sAddress2}
+<br>{sCity}, {sState} {sZip} {sCountry}
+<br>{sTelephone}
+
+<br>Total Weight: {total_weight}
+<hr>
+<b>Source:</b> {Source} <br>
+<b>Referred by:</b> <a href="{referred_by}">{url_source}</a>"{queryterms}" <b>{rid}</b><br>
+
+<hr>
+
+<p><h3>Order Summary</h3>
+
+
+{HTMLORDERSUMMARY} 
+<hr>
+
+
+</body>
+</html>

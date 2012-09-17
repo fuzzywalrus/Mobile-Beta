@@ -1,0 +1,49 @@
+<!--kits product_detail.html-->
+<!--SET SBWIDTH==sidebarwide-->
+<!--SET SBTOP==<div class="blk"><h1>{parent.cat_name}</h1><img src="images/navtop_blk.gif" width="210" height="38" border="0" alt=""><ul class="">-->
+<!--SET SIDEBARNAV==insert|categories|888||<li><a href="<<link_action>>"><<cat_name>></a></li>|20|||-->
+<!--SET SBBTM==</ul></div>-->
+<!--SET MAINCONTENT==contentnarrow-->
+<!--SET BREADCRUMB==-->
+
+<div class="kits"><ul style="border-bottom:1px solid #cdcccc;padding-bottom:4px">
+<li class="navlinktop"><a href="cpage_888/beginner_kits.html">Main</a></li>
+<!--insert|categories|888||<li class="<<inpath>>top"><a href="<<link_action>>"><<cat_name>></a></li>|10|||--></ul>
+</div>
+
+<div class="jumptobox">See other items in this category: <form action="page" method="POST" style="display:inline;margin-left:6px">	
+				<select name="product_id" onChange="jumpTo('parent',this,0)" class="formborder">
+				<option value="0">Jump to...
+					<!--insert|items|{cat_id}||<option value="page_<<product_id>>_{cat_id}/{page_name}?stpl=kits"><<product_name>></option>|50|||-->
+				</select></form></div>
+
+<table class="table_nomargin" style="margin-bottom:10px">
+	<tr valign="top">
+		<td align="left" style="width:350px">
+<img src="{th2_product_image1}" border="0" name="big" alt="{SEO_TITLE}">
+{OPTION_DETAILS}
+<p><!--<div class="tellafriend" style="margin-top:10px"><a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/tellafriend.html?page={THISPAGE}','newin','toolbar=no,location=no,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=500,height=525')">Tell a Friend</a></div>--></td>
+
+		<td align="left" style="padding-left:10px"><h1>{product_name}</h1>
+	 <!--{product_flag3}_on<div class="flag">New!</div>{product_flag1}_on--> 
+		<!--{free_shipping}_on<div class="freeship">Ships Free!</div>{free_shipping}_on-->
+		<span class="sku">{catalog_id}</span><br>
+		{blurb1}<br>
+    {blurb2}<p>
+		<b>Why Recommended:</b><br>
+		{blurb3}<p>
+		<b>Units</b><p>
+		
+		{ADDTOCART}
+		<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.glasscraftinc.com%2Fhome%2Fgla%2Fpage_{product_id}&amp;layout=standard&amp;show_faces=false&amp;width=250&amp;action=like&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="margin-top:15px;border:none; overflow:hidden; width:250px; height:35px;" allowTransparency="true"></iframe>
+		</td>
+	</tr>
+</table>
+
+<div class="kits"><ul style="border-top:1px solid #cdcccc;padding-top:3px">
+<li class="navlinkb"><a href="cpage_888/beginner_kits.html">Main</a></li>
+<!--insert|categories|888||<li class="<<inpath>>b"><a href="<<link_action>>"><<cat_name>></a></li>|10|||--></ul>
+</div>
+	
+
+<!--/kits product_detail.html-->

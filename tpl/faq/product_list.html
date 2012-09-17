@@ -1,0 +1,33 @@
+<!--faq product_list.html-->
+<!--SET BREADCRUMB==-->
+<!--SET CANONICAL==/{doc_name}-->
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('#faq dt').click(function(){
+          $(this).next().slideToggle('slow');
+          return false;
+      }).next().hide();
+  });
+</script>
+	
+<h1>{cat_name}</h1>
+<p>{cat_blurb1}</p>
+<div data-role="collapsible-set"  data-theme="e">
+
+	<!-- NAME: product_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+
+
+	{PRODUCTCELL}
+
+
+
+	<!-- END DYNAMIC BLOCK: product_list_row -->
+	<!-- END: product_list.html -->
+</div>
+
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+
+
+<!--/faq product_list.html-->
