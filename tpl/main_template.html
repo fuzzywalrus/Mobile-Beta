@@ -8,8 +8,6 @@
 <!--v.11-->
 
 <meta charset="utf-8">
-<meta name="description" content="{SEO_DESCRIPTION}" />
-<meta name="keywords" content="{SEO_KEYWORDS}" />
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
 <title>{SEO_TITLE}</title>
@@ -60,7 +58,7 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
 	});
 </script>
 <script src="{RELATIVEURL}/images-mm/jquery/jquery.lightbox-0.5.min.js"></script>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(function() {
         $('#gallery a').lightBox({
         	imageLoading: '{RELATIVEURL}/images-mm/jquery/images/lightbox-ico-loading.gif',
@@ -70,7 +68,7 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
         });
         
     });
-</script> -->
+</script>
 <!-- might want to use this as Androidify-->
 <script type="text/javascript">
 	 if(navigator.userAgent.match(/Android/i)){
@@ -89,7 +87,7 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
 <!--Body-->
 <body>		
 <div data-role="page" > <!--Open Mobile Data role page -->
-	<div data-role="header" data-position="fixed">
+	<div data-role="header" data-position="inline">
 		<!-- <div id="banner"><div id="logo"><a href="/"><img src="images/mobile_logo.png" border="0" alt="{meta_description}"></a></div></div> --><!--/banner-->
 		<!--session{CARTINFO}session-->
 		<h1 style="color:white;">{total_qty} items/{total_price}</h1>
@@ -132,7 +130,7 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
 			</ul>
 		</div><!--Secondary navigation-->
 	</div><!--/content-->
-	<div data-role="footer" class="footer-docs" data-theme="c" data-position="fixed">
+	<div data-role="footer" class="footer-docs" data-theme="c">
 			<p>{store_phone1}</p>
 			<div class="siteby">{MIGHTY}</div>
 			{ANALYTICS}
