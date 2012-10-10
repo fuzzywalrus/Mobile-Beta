@@ -1,10 +1,8 @@
 <!--root product_detail.html-->
 {MESSAGE}
-<div class="centered mtl" id="gallery">
-<a border="0" href="{RELATIVEURL}/{product_image1}">
-	<img src="{product_image1}"  border="0" alt="{product_name}"  width="{MYVAR1}" />
+<a href="{RELATIVEURL}/{product_image1}">
+	<img src="{product_image1}"  border="0" alt="{product_name}" />
 </a>
-</div>
 
 	<h1>{product_name}</h1>
 		<!--{product_flag1}_on <span class="highlight">Featured!</span>{product_flag1}_on-->
@@ -31,6 +29,8 @@
 		{ADDTOCART}<br />
 		
    		
+
+
 		
 		<form action="page" method="POST">	
 				<select name="product_id" onChange="jumpTo('parent',this,0)" class="fancybutton2">
