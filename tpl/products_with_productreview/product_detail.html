@@ -1,0 +1,55 @@
+<!--product product_detail.html-->
+{MESSAGE}
+<div class="centered mtl" id="gallery">
+<a border="0" href="{RELATIVEURL}/{product_image1}">
+	<img src="{product_image1}"  border="0" alt="{product_name}"  width="{MYVAR1}" />
+</a>
+</div>
+
+	<h1>{product_name}</h1>
+		<!--{product_flag1}_on <span class="highlight">Featured!</span>{product_flag1}_on-->
+		<!--{product_flag2}_on <span class="highlight">Sale!</span> {product_flag2}_on-->
+		<!--{product_flag3}_on <img src="images-mm/new.gif" width="44" height="24" border="0" alt="New Item!" align="top" /> {product_flag3}_on-->
+		&nbsp;<span class="freeship"><!--{free_shipping}_on 'Ships Free!' {free_shipping}_on--></span>
+		<br />
+		
+		<div data-theme="b" data-content-theme="d" data-role="collapsible" class="productdescription">
+			<h3>Description</h3>
+
+			<div class="hidabledescription">{blurb1}</div>
+			<div id="gallery">
+				<div>
+					<a href="{RELATIVEURL}/{product_image2}"><img src="{th_product_image2}"></a>
+				</div>
+				<div>
+					<a href="{RELATIVEURL}/{product_image3}"><img src="{th_product_image3}"></a>
+				</div>
+			</div>
+		</div>
+		
+		<div data-theme="b" data-content-theme="d" data-role="collapsible" class="productdescription">
+		   	<h3>Customer Reviews</h3>
+            <!--insert|data|products|custom1={product_id} && hide_product = 'N'|<span class="testimonialcellheader"><<custom2>></span>&nbsp;&nbsp;<img src = "images-mm/<<product_rating>>_star.gif" name = "star"  alt = "<<custom3>>"><br><br><i><<blurb1>></i> -- <<custom4>><hr>|-->
+                              <br><br>
+            <a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/cpage_{REVIEWCAT}/product_review.html?myproductid={product_id}','newin','toolbar=no,left=0,top=0,location=top,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=650,height=540')"><b>Submit a review</a></b>
+</b>
+        </div>
+
+		{OPTION_DETAILS}
+		<hr>
+		{ADDTOCART}<br />
+		
+   		
+		
+		<form action="page" method="POST">	
+				<select name="product_id" onChange="jumpTo('parent',this,0)" class="fancybutton2">
+				<option value="0">Other Products in {cat_name}..</option>
+					<!--insert|items|{cat_id}||<option value="page_<<product_id>>"><<product_name>></option>|-->
+				</select></form>
+<script>
+	$(document).ready(function() {
+		$(".ui-radio").addClass("radio-choice-1").removeClass("ui-radio");
+	});
+</script>
+
+<!--/product_detail.html-->
