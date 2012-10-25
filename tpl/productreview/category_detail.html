@@ -1,0 +1,51 @@
+<!--Popup window for product review submissions-->
+	<form action="saveform" method="POST" name="newaccountform" class="fancyform" enctype="multipart/form-data" onSubmit ="return check_required('newaccountform')">
+			<input type = "hidden" name = "required" value = "captcha,email_address"> 
+		  <!--note: set the product review category id number in BOTH main tempaltes-->
+			<input type="hidden" name="main_cat_id" value="{REVIEWCAT}">
+      <input type="Hidden" name="receiver_list" value="{CODED_EMAIL}"/>
+			<input type="hidden" name="custom1" size="30" maxsize="50" value = "{myproductid}">
+      <!--insert|product|{myproductid}||<h2>Submit a Product Review : <<product_name>></h2><input type="hidden" name="product_name" value="<<product_name>>">|--> 			
+      <p><label>Rate this Product</label></p>
+      
+      
+      <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+    
+    
+      <input type="radio" name="product_rating" id="radio-review-1" value="choice-1">
+      <label for="radio-review-1"><img src = "images-mm/1.0_star.gif" alt = "1 star"></label>
+      
+      <input type="radio" name="product_rating" id="radio-review-2" value="choice-2">
+      <label for="radio-review-2"><img src = "images-mm/2.0_star.gif" alt = "2 stars"></label>
+      
+      <input type="radio" name="product_rating" id="radio-review-3" value="choice-3">
+      <label for="radio-review-3"><img src = "images-mm/3.0_star.gif" alt = "3 stars"></label>
+      
+      <input type="radio" name="product_rating" id="radio-review-4" value="choice-4">
+      <label for="radio-review-4"><img src = "images-mm/4.0_star.gif" alt = "4 stars"></label>
+      
+      <input type="radio" name="product_rating" id="radio-review-5" value="choice-5">
+      <label for="radio-review-5"><img src = "images-mm/5.0_star.gif" alt = "5 stars"></label>
+      
+      
+          </fieldset>
+          </div>
+      
+      <p><label>Your Name:</label><input type="text" name="custom4" size="30" maxsize="50" value = "{custom4}"></p>
+        
+      <p><label>Review Title:</label><input type="text" name="custom2" size="30" maxsize="50" value = "{custom2}"></p>
+        
+      <p><label>Your comments:</label><textarea name="blurb1" cols="40" rows="4" wrap="VIRTUAL"></textarea></p>
+      
+      <p><label>Your Email Address:</label> <input type = "text" size = "20" name = "email_address"></p>
+      
+      We will not use your or your friends' email addresses for any other purpose.</p>
+        
+      <p class="rightcolumn" style="margin-top:12px;margin-bottom:0px"><img name="verify" src ="{RELATIVEURL}/home/{STOREID}/randomimage.gif" border="1"></p>
+      
+      <p><label>Verification Code:</label> <input type ="text" id = "Verification Code" name="captcha" value = ""></p>
+      (Enter the numbers in the box above, required)</p>
+      
+      <p><label>&nbsp;</label> <input type="Submit"  class="cartbutton cartbutton_forwardsml" name="submit" value="Submit Your Review"></p>
+  </form>
