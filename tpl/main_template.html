@@ -5,7 +5,7 @@
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.16-->
+<!--v.17-->
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -45,6 +45,12 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
 <!--                     JQuery + Javscripts               -->
 <!--=======================================================-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!--needed for data-enhance -->
+<script type="text/javascript">
+$(document).bind("mobileinit", function(){
+  $.mobile.ignoreContentEnabled = true;
+});
+</script>
 <!-- This disables AJAX preloading, very important -->
 <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script>
 <script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.js"></script>
