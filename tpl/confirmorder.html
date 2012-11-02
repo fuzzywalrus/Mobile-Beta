@@ -62,12 +62,10 @@
 <form action="processorder" method="POST" name="process" onSubmit="return check_required('process')">
 		
 	<!--from confirm_cart_list.html-->
-		<div data-enhance="{AUTHORIZENET}" data-role="none" data-ajax="false" >
 
 			<div id="cartcontent">
 			{ORDERSUMMARY}
 			</div> 
-		</div>
 	<!--/from confirm_list_.html-->
 			
 			{POSTEDFIELDS} 
@@ -77,7 +75,9 @@
 							This order form is on a secure web server to protect your credit card information.<br>
 							<br>
 							<span class="cartinstructions">{PMTCHECKBOX}</span>
-							<div align="center">{PAYMENTSECTION}</div>
+							<div align="center">		<div data-enhance="{AUTHORIZENET}" data-role="none" data-ajax="false" >
+{PAYMENTSECTION}</div>	</div>
+
 							<input type="hidden" name="required" value="Payment_Method">
 					
 			<br>
