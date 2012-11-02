@@ -1,12 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.17-->
-
+<!--v.18-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -23,15 +21,7 @@
 <!--=======================================================-->
 <!--                      Androidify                       -->
 <!--=======================================================-->
-<script type="javascript">
-function hideAddressBar(){
-  if(document.documentElement.scrollHeight<window.outerHeight/window.devicePixelRatio)
-    document.documentElement.style.height=(window.outerHeight/window.devicePixelRatio)+'px';
-  setTimeout(window.scrollTo(1,1),0);
-}
-window.addEventListener("load",function(){hideAddressBar();});
-window.addEventListener("orientationchange",function(){hideAddressBar();});
-</script>
+<script src="{RELATIVEURL}/images-mm/jquery/mobile/code.androidify.js"></script>
 <!--=======================================================-->
 <!--                         CSS                           -->
 <!--=======================================================-->
@@ -45,14 +35,8 @@ window.addEventListener("orientationchange",function(){hideAddressBar();});
 <!--                     JQuery + Javscripts               -->
 <!--=======================================================-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<!--needed for data-enhance -->
-<script type="text/javascript">
-$(document).bind("mobileinit", function(){
-  $.mobile.ignoreContentEnabled = true;
-});
-</script>
-<!-- This disables AJAX preloading, very important -->
-<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script>
+<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-ignoreContentEnabled.js"></script><!--needed for data ignore -->
+<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script><!-- This disables AJAX preloading, very important -->
 <script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.js"></script>
 <script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script>
 {JAVASCRIPT}
@@ -68,11 +52,6 @@ $(document).bind("mobileinit", function(){
 		});
 	});
 </script>
-<!-- might want to use this as Androidify-->
-<script type="text/javascript">
-	 if(navigator.userAgent.match(/Android/i)){
-    window.scrollTo(0,1); }
-</script>
 <!--=======================================================-->
 <!--                         Defaults                      -->
 <!--=======================================================-->
@@ -82,6 +61,7 @@ $(document).bind("mobileinit", function(){
 <!--DEFAULT SEARCHTOP==-->
 <!--DEFAULT BREADCRUMB=={YOUAREHERE}-->
 <!--DEFAULT REVIEWCAT=={ INSERT CAT}-->
+<!--DEFAULT AUTHORIZENET=={TRUE}-->   <!-- Change this to false for Paypal/PayJunction to make confirmorder work -->
 
 </head>
 <!--/Header-->
@@ -106,6 +86,9 @@ $(document).bind("mobileinit", function(){
 					</form>
 				</div>
 			</div>
+<!--=======================================================-->
+<!--                     Page Content                      -->
+<!--=======================================================-->
 			{PAGECONTENT}
 		</div>
 		
@@ -131,6 +114,9 @@ $(document).bind("mobileinit", function(){
 			</ul>
 		</div><!--Secondary navigation-->
 	</div><!--/content-->
+<!--=======================================================-->
+<!--                        Footer                         -->
+<!--=======================================================-->
 	<div data-role="footer" class="footer-docs" data-theme="c">
 			<p><a href="tel:{store_phone1}">{store_phone1}</a></p>
 			<div class="siteby">{MIGHTY}</div>
