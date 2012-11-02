@@ -62,9 +62,12 @@
 <form action="processorder" method="POST" name="process" onSubmit="return check_required('process')">
 		
 	<!--from confirm_cart_list.html-->
+		<div data-enhance="{AUTHORIZENET}" data-role="none" data-ajax="false" >
+
 			<div id="cartcontent">
 			{ORDERSUMMARY}
 			</div> 
+		</div>
 	<!--/from confirm_list_.html-->
 			
 			{POSTEDFIELDS} 
