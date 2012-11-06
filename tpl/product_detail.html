@@ -27,8 +27,9 @@
 		<div class="ui-block-c centered">
 			<a href="{RELATIVEURL}/{product_image1}"  rel="external"><img src="{th_product_image1}"></a>
 		</div>
+	
 		{OPTION_DETAILS}
-
+	
 	</div>
 </div>
 <!-- /Additional Views -->
@@ -59,6 +60,12 @@
 	});
 </script>
 <script type="text/javascript">
+	//This removes the PhotoSwipe before the gallery can munch it - Robertsan.
+		$("#Gallery img").each(function() {
+			if(!MM_hasImage($(this).attr('src')) ) {
+				$(this).parent().parent().remove();
+			}
+		});
 		(function(window, $, PhotoSwipe){
 			$(document).ready(function(){
 				var options = {};
