@@ -1,0 +1,35 @@
+<!--root product_list.html-->
+<!--SET CANONICAL==/{doc_name}-->
+
+<h1>{cat_name}</h1>
+
+<div class="inventorymessage">{MESSAGE}</div>
+
+	<div data-theme="b" data-content-theme="d" data-role="collapsible" class="productdescription">
+		<h3>Category Description</h3>
+
+		<p class="hidabledescription">{cat_blurb1}</p>
+	</div>
+	
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+<div class="mtl">
+<ul data-role="listview">
+	<!-- NAME: product_list.html -->
+	<!-- BEGIN DYNAMIC BLOCK: product_list_row -->
+
+	{PRODUCTCELL}
+
+	<!-- END DYNAMIC BLOCK: product_list_row -->
+	<!-- END: product_list.html -->
+</ul>
+</div>
+<div class="nextprev">{PREV}{PAGES}{NEXT}</div>
+
+
+<script>
+	$(document).ready(function() {
+		$(".ui-radio").addClass("radio-choice-1").removeClass("ui-radio");
+	});
+</script>
+<!--/root product_list.html-->
