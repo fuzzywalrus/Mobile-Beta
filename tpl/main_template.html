@@ -4,7 +4,7 @@
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.21-->
+<!--v.22-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -39,6 +39,8 @@
 <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script><!-- This disables AJAX preloading, very important -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>  <!--MS CDN -->
 <script src="{RELATIVEURL}/images-mm/jquery/mobile/code.photoswipe.jquery-3.0.5.min.js"></script>
+<script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.fitvids.js"></script>
+
 <script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script>
 {JAVASCRIPT}
 <!-- this hides empty hidable descriptions! --->
@@ -52,6 +54,11 @@
 			}
 		});
 	});
+</script>
+<script>
+  $(document).ready(function(){
+    $("#videos").fitVids();  // Target your .container, .wrapper, .post, etc.
+  });
 </script>
 <!--=======================================================-->
 <!--                         Defaults                      -->
