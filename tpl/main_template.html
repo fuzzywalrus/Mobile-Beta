@@ -4,7 +4,7 @@
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.20-->
+<!--v.21-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -34,10 +34,11 @@
 <!--                     JQuery + Javscripts               -->
 <!--=======================================================-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>  <!--Google CDN -->
-<script src="{RELATIVEURL}/images-mm/mm_lib.dev.js" type="text/javascript"></script>
+<script src="{RELATIVEURL}/images-mm/mm_lib.dev.js" type="text/javascript"></script> <!--BOI JS -->
 <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-ignoreContentEnabled.js"></script><!--needed for data ignore -->
 <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script><!-- This disables AJAX preloading, very important -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>  <!--MS CDN -->
+<script src="{RELATIVEURL}/images-mm/jquery/mobile/code.photoswipe.jquery-3.0.5.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script>
 {JAVASCRIPT}
 <!-- this hides empty hidable descriptions! --->
@@ -61,7 +62,7 @@
 <!--DEFAULT SEARCHTOP==-->
 <!--DEFAULT BREADCRUMB=={YOUAREHERE}-->
 <!--DEFAULT REVIEWCAT=={ INSERT CAT}-->
-<!--DEFAULT AUTHORIZENET=={TRUE}-->   <!-- Change this to false for Paypal/PayJunction to make confirmorder work -->
+<!--DEFAULT AUTHORIZENET=={TRUE}--> <!-- Change this to false for Paypal/PayJunction to make confirmorder work -->
 </head>
 <!--/Header-->
 <!--Body-->
@@ -119,7 +120,7 @@
 			<p><a href="tel:{store_phone1}">{store_phone1}</a></p>
 			<div class="siteby">{MIGHTY}</div>
 			{ANALYTICS}
-	</div> <!--/Open Mobile Data role page -->
+	</div> <!--/Close Mobile Data role page -->
   <!-- END Mobile main template-->
 </body>
 </html>
