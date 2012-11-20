@@ -1,5 +1,6 @@
 <!--view_cart_list.html-->
 <!--SET CARTINFO==-->
+			<input type="submit" class="" name="submit" value="Continue Shopping" data-theme="e" data-icon="back" />
 
 <div class="ui-grid-b" data-theme="a">
 	<div class="ui-block-a"></div>
@@ -120,7 +121,7 @@
 		{SHIP_SECTION}
 
 <div  data-role="collapsible" data-content-theme="b" data-theme="e" >
-<h3>Shipping Notes</h3>
+<h3>Shipping Information</h3>
 		{shipping_notes}
 </div>
 		
@@ -141,8 +142,10 @@
 
 
 			<input type="hidden" name="checkoutbuttontext" value="Check Out" />
-		<input class="" type="submit" name="submit" data-theme="b" value="Check Out" {UPS_JAVASCRIPT} data-icon="arrow-r"/>
 		</div>
+		<hr>	
+					<input class="" type="submit" name="submit" data-theme="b" value="Check Out" {UPS_JAVASCRIPT} data-icon="arrow-r"/>
+
 		<hr>
 		
 		
@@ -150,7 +153,7 @@
 </form>
 <!--loggedout 
 
-<div data-role="collapsible" data-content-theme="b" data-theme="b">
+<div data-role="collapsible" data-content-theme="a" data-theme="a">
    <H3>Sign into your acccount</H3>
 	<div>
 <form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
