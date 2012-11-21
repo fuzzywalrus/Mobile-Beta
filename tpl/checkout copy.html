@@ -1,0 +1,276 @@
+<!--checkout.html-->
+<!--SET CARTINFO==-->
+<div class="stepson"><strong>Step 1: Billing/Shipping Info</strong></div>
+
+<br>
+<div class="steps">Step 2: Payment</div><br />
+
+Billing and Shipping Information<br>
+		<span class="instructions">Please review your order and fill out the billing form below. Required fields are marked with an asterisk (*).</span>
+		<br /><span class="errormessage">{MESSAGE}</span>
+<div style="clear:both;"></div>
+
+<div class="buttons">
+	<form action = "docart" method = "POST">
+
+	<input type="hidden" name="continuetext" value="Continue Shopping" />
+	<input class="fancybutton2" type="submit" name="submit" value="Continue Shopping" data-theme="e"  data-icon="back" />
+
+	</form>
+</div>
+<hr>
+
+
+<div id="cartcontent">
+{ORDERSUMMARY}
+</div>
+
+
+<!--
+<form action =  "{SECUREURL}/login" method = "post">
+<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account below to use express checkout on future orders. <br><hr>
+User Name: <input type="text" name = "account_name" size = "15"><br>
+Password: <input type="hidden" name = "goto" value = "checkout" size = "10"><input type="password" name = "account_password" size =  "15">
+<br>
+<input class="fancybutton2" type = "submit" name = "Log In" value = "Log in" data-theme="b">
+</form>
+</span>
+<hr>
+-->
+
+
+
+<!--loggedout 
+
+<div data-role="collapsible" data-content-theme="b" data-theme="b">
+   <H3>Sign into your acccount</H3>
+	<div>
+	<form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
+	
+	<p>
+	<table width = "100%" cellpadding = "3" cellspacing = "0" border="1" bgcolor="#eaeaea"> 
+		<tr>
+			<td width="38%">
+			
+					<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.
+			</td>
+			<td width="62%">
+					User Name: <input type="text" name = "account_name" size = "15" style="width:90%;"><br>
+					Password: 
+					<input type="hidden" name = "goto" value = "checkout" size = "10" style="width:90%;">
+					<input type="password" name = "account_password" size =  "15" style="width:90%;">
+					<br>
+					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear">
+				
+				</span>
+			</td>
+		</tr>
+</table> 
+
+</form>
+	</div>
+</div>
+loggedout-->
+
+{CREATE_ACCOUNT}
+
+
+
+ 
+<form action="confirmorder" method="post" name="orderform" onsubmit="return check_required('orderform')">
+<input type="hidden" name="required" value="First_Name,Last_Name,Email_Address,Verify_Email_Address,Telephone,Address1,City,State,Zip,Country,sAddress1,sFirst_Name,sLast_Name,sCity,sState,sZip,sCountry" />
+<!--giftcerts 
+<b>If you have a Gift Certificate, please enter the code below.</b><br>
+Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class="formborder">
+
+
+ giftcerts-->
+			
+<div data-role="collapsible-set">
+
+<div data-role="collapsible" data-collapsed="false" data-content-theme="b">
+
+<a name="bill"></a>
+<h3>Bill To:</h3>
+
+<div data-role="fieldcontain">
+    <label for="name">First Name*:</label>
+    <input type="text" name="First_Name" value="{First_Name}" id="name" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Last Name*:</label>
+    <input type="text" name="Last_Name" value="{Last_Name}"  id="lastname" />
+</div>	
+
+<!--<div data-role="fieldcontain">
+    <label for="name"Company Name:</label>
+    <input type="text" name="Company_Name" value="{Company_Name}" id="lastname" />
+</div>	-->
+
+<div data-role="fieldcontain">
+    <label for="name">Email Address*:</label>
+    <input type="text" name="Email_Address" value="{Email_Address}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Verify Email Address*:</label>
+    <input type="text" name="Verify_Email_Address" value="{Verify_Email_Address}" onBlur = "javascript: compare('orderform','Email_Address','Verify_Email_Address')"/>
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Phone*:<br /><small>Ex: 111-222-3333</small></label>
+    <input type="text" name="Telephone" value="{Telephone}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Address*:</label>
+    <input type="text" name="Address1" value="{Address1}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Address 2*:</label>
+    <input type="text" name="Address2"  value="{Address2}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">City*:</label>
+    <input type="text" name="City" value="{City}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">State/Province <small>(Use Abbreviations)</small>:</label>
+    <input type = "HIDDEN" name = "sales_tax_field_name" value = "sState" />
+    <input type="text" name="State" value="{State}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Zip/Postal Code*:</label>
+    <input type="text" name="Zip" value="{Zip}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Country*:</label>
+    <input type="text" name="Country" value="{Country}" />
+</div>	
+
+
+<input type = "button" name="Copy"  data-theme="b"  value ="Copy Billing Info to Shipping" onclick = "copyFields(this.form)" />
+
+	</div>
+
+
+
+
+
+	<div data-role="collapsible" data-content-theme="b">
+<h3>Ship To:</h3>
+
+
+<div data-role="fieldcontain">
+    <label for="name">First Name*:</label>
+    <input type="text" name="sFirst_Name" value="{sFirst_Name}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Last Name*:</label>
+    <input type="text" name="sLast_Name" value="{sLast_Name}" />
+</div>	
+
+<!--<div data-role="fieldcontain">
+    <label for="name">Company Name*:</label>
+    <input type="text" name="sCompany_Name" value="{sCompany_Name}" />
+</div>	-->
+
+<div data-role="fieldcontain">
+    <label for="name">Delivery Phone*:<br><small>Ex: 111-222-3333</small></label>
+    <input type="text" name="sTelephone" id = "Delivery Phone" value="{sTelephone}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Address*:</label>
+    <input type="text" name="sAddress1" id = "Ship To Address" value="{sAddress1}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Address #2:</label>
+    <input type="text" name="sAddress2" value="{sAddress2}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">City*:</label>
+    <input name="sCity" id = "Ship To City" value="{sCity}" class="formborder" maxlength=25 >
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">State/Province <small>(Use Abbreviations)</small>:</label>
+    <input type="text" id = "Ship To State" name="sState" value = "{sState}" />
+</div>
+
+<div data-role="fieldcontain">
+    <label for="name">Zip/Postal Code*:</label>
+    <input type="text" name="sZip" id = "Ship To Zip" value="{sZip}" />
+</div>	
+
+<div data-role="fieldcontain">
+    <label for="name">Country*:</label>
+    <input type="text" name="sCountry" id = "Ship To Country" value="{sCountry}"  />
+</div>	
+     
+</div></div>
+     
+     
+     <Hr>
+ <b>Shipping Specifications</b><!--<p>
+<input type="hidden" name="understand_ordering" value="No"><input type="checkbox" id="understand" name="understand_ordering" value="Yes"> I have read and understood the <a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/terms.html','newin','toolbar=no,location=no,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=500,height=525')">online ordering procedures</a>.-->
+<input type="hidden" name="notify_after_ship" value="No">
+<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+		<legend>I would like an invoice total with the shipping charges emailed to me at the time that my order is shipped:</legend>
+		<input type="checkbox" name="notify_after_ship"  value="Yes" id="checkbox-1" class="custom" />
+		<label for="checkbox-1">Yes</label>
+    </fieldset>
+</div>
+<input type="hidden" name="split_orders" value="Yes">
+<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+		<legend> Please do not split my order between locations.</legend>
+		<input type="checkbox" name="split_orders"  value="No" id="checkbox-1" class="custom" />
+		<label for="checkbox-1">Yes</label>
+    </fieldset>
+</div>
+
+
+
+<b>Comments:</b><br /><textarea name="Comments" rows="5" wrap="virtual">{Comments}</textarea><br />
+
+
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+    	<legend>This order is a gift:</legend>
+         	<input type="radio" name="gift" id="radio-choice-1" value="Yes"/>
+         	<label for="radio-choice-1">Yes</label>
+
+         	<input type="radio" name="gift" id="radio-choice-2" value="No"  checked="checked"/>
+         	<label for="radio-choice-2">No</label>
+
+    </fieldset>
+</div>
+
+
+
+<b>Gift Message:</b><br /><textarea name="Gift_Message" rows="5" wrap="virtual">{Gift_Message}</textarea><br />
+Where did you hear about us?<br />
+<input name="Source" value="{Source}" size="25" maxlength="50" /><br />
+<!--loggedin
+<input type = "checkbox" name = "save_account_info" value = "Y">Save changes on this page to my account<br />
+loggedin-->
+
+<div class="continue">
+<input type="submit" data-theme="b" value="Continue Secure Checkout " data-icon="arrow-r"/>
+</div>
+
+</form>
+
+
+<!--/checkout.html-->
