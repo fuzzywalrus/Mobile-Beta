@@ -1,7 +1,16 @@
 <!--root product_detail.html--> 
 <!--SET CANONICAL==/{page_name}-->
 
-<p>{MESSAGE}</p>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('.message.manual').MM_hideIfEmpty("{MESSAGE}");
+});
+</script>
+<div class="mod message manual success">
+	 {MESSAGE} <br> <a data-theme="e" data-role="button" href="viewcart">View Cart</a>
+</div>
+
 <a href="#additionalviews">
 	<img src="{product_image1}"  border="0" alt="{product_name}" />
 </a>
