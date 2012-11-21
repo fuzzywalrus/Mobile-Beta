@@ -221,25 +221,26 @@ Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class
      
      
      <Hr>
- <b>Shipping Specifications</b><!--<p>
-<input type="hidden" name="understand_ordering" value="No"><input type="checkbox" id="understand" name="understand_ordering" value="Yes"> I have read and understood the <a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/terms.html','newin','toolbar=no,location=no,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=500,height=525')">online ordering procedures</a>.-->
-<input type="hidden" name="notify_after_ship" value="No">
-<div data-role="fieldcontain">
- 	<fieldset data-role="controlgroup">
-		<legend>I would like an invoice total with the shipping charges emailed to me at the time that my order is shipped:</legend>
-		<input type="checkbox" name="notify_after_ship"  value="Yes" id="checkbox-1" class="custom" />
-		<label for="checkbox-1">Yes</label>
-    </fieldset>
+<div class="shipsection" style="display:{DISPLAYSHIPSECTION}">
+	 <b>Shipping Specifications</b><!--<p>
+	<input type="hidden" name="understand_ordering" value="No"><input type="checkbox" id="understand" name="understand_ordering" value="Yes"> I have read and understood the <a href="javascript:void(0)" ONCLICK="window.open('{BASEURL}/home/{STOREID}/terms.html','newin','toolbar=no,location=no,directories=0,status=0,resizable=yes,menubar=no,scrollbars=yes,width=500,height=525')">online ordering procedures</a>.-->
+	<input type="hidden" name="notify_after_ship" value="No">
+	<div data-role="fieldcontain"  style="display:{DISPLAYINVOICE}">
+	 	<fieldset data-role="controlgroup">
+			<legend>I would like an invoice total with the shipping charges emailed to me at the time that my order is shipped:</legend>
+			<input type="checkbox" name="notify_after_ship"  value="Yes" id="checkbox-1" class="custom" />
+			<label for="checkbox-1">Yes</label>
+	    </fieldset>
+	</div>
+	<input type="hidden" name="split_orders" value="Yes">
+	<div data-role="fieldcontain" style="display:{DISPLAYSPLITORDERS}">
+	 	<fieldset data-role="controlgroup">
+			<legend> Please do not split my order between locations.</legend>
+			<input type="checkbox" name="split_orders"  value="No" id="checkbox-1" class="custom" />
+			<label for="checkbox-1">Yes</label>
+	    </fieldset>
+	</div>
 </div>
-<input type="hidden" name="split_orders" value="Yes">
-<div data-role="fieldcontain">
- 	<fieldset data-role="controlgroup">
-		<legend> Please do not split my order between locations.</legend>
-		<input type="checkbox" name="split_orders"  value="No" id="checkbox-1" class="custom" />
-		<label for="checkbox-1">Yes</label>
-    </fieldset>
-</div>
-
 
 
 <b>Comments:</b><br /><textarea name="Comments" rows="5" wrap="virtual">{Comments}</textarea><br />
