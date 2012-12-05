@@ -2,41 +2,40 @@
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Daytona Helmets Product Review</title>
+<title>{product_name} Review</title>
 <base href = "{BASEHREF}">
-<link rel="stylesheet" type="text/css" href = "{RELATIVEURL}/css/content.css">
-
-
 <!--=======================================================-->
 <!--                         CSS                           -->
 <!--=======================================================-->
-<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.css" />
-
-<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/mobileaddtional.css" /> 
-<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.css" />
-<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jqm-icon-pack-2.1.2-fa.css" /> 
-
-<link rel="stylesheet" href="{RELATIVEURL}/css/mobile.css" />
+<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile_boi.css"/>
-
+<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/mobileaddtional.css" /> 
+<link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jqm-icon-pack-2.1.2-fa.css" /> 
+<!-- <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.table.reflow.css">-->
 <link rel="apple-touch-icon"  href="{RELATIVEURL}/images/apple-touch-icon.png" /> <!-- 114px x 114px, square-->
 <!--=======================================================-->
 <!--                     JQuery + Javscripts               -->
 <!--=======================================================-->
 <script type="text/javascript" src="{RELATIVEURL}/images-mm/jquery/mobile/klass.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<!-- This disables AJAX preloading, very important -->
-<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script>
-<script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.js"></script>
+<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-ignoreContentEnabled.js"></script><!--needed for data ignore -->
+<script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script><!-- This disables AJAX preloading, very important -->
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 <script type="text/javascript" src="{RELATIVEURL}/images-mm/jquery/mobile/code.photoswipe.jquery-3.0.5.min.js"></script>
+<script src="{RELATIVEURL}/images-mm/mm_lib.dev.js" type="text/javascript"></script>
+
+<script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.fitvids.js"></script></script>
 <script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script>
 
-<!--DEFAULT REVIEWCAT==255-->
+<!--DEFAULT REVIEWCAT==YOU NEED TO COPY THIS OVER-->
 {JAVASCRIPT}
 
 </head>
-<body style="background:#000 url({RELATIVEURL}/images/paper2.jpg) repeat top left; padding:10px;">
+<body>
+	<div data-role="page" > <!--Open Mobile Data role page -->
 	{PAGECONTENT}
+	</div>
 </body>
 </html>
 <!--{MIGHTY}-->
