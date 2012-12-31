@@ -4,10 +4,10 @@
 <div class="steps">Step 1: Billing/Shipping Info</div>
 <div class="stepson">Step 2: Payment</div><p>
 <h1>Order Summary and Payment</h1>
-			<div class="errormessage" align="center">
-				{MESSAGE}
-			</div>
-			<span class="instructions">Please review your billing and shipping information and order summary below. If everything is correct, enter your payment information at the bottom of the page and click Submit My Order.</span> 
+	<div class="errormessage" align="center">
+		{MESSAGE}
+	</div>
+<span class="instructions">Please review your billing and shipping information and order summary below. If everything is correct, enter your payment information at the bottom of the page and click Submit My Order.</span> 
 			
 <div id="cart">
 <table class="tablecart">
@@ -54,29 +54,27 @@
 		<hr>
 		</td>
 	</tr>
-
-</table></div>
+</table>
+</div>
 <h3>Order Summary</h3> 
 
 
-<form action="processorder" method="POST" name="process" onSubmit="return check_required('process')">
-		
+<form action="processorder" method="POST" name="process" onSubmit="return check_required('process')">	
 	<!--from confirm_cart_list.html-->
-
-			<div id="cartcontent">
-			{ORDERSUMMARY}
-			</div> 
+	<div id="cartcontent">
+		{ORDERSUMMARY}
+	</div> 
 	<!--/from confirm_list_.html-->
-			
 			{POSTEDFIELDS} 
 					
-						<h3>Enter Payment Information</h3> 
-						
-							This order form is on a secure web server to protect your credit card information.<br>
-							<br>
-							<span class="cartinstructions">{PMTCHECKBOX}</span>
-							<div align="center">		<div data-enhance="{AUTHORIZENET}" data-role="none" data-ajax="false" >
-{PAYMENTSECTION}</div>	</div>
+	<h3>Enter Payment Information</h3> 
+	This order form is on a secure web server to protect your credit card information.<br>
+	<br>
+	<span class="cartinstructions">{PMTCHECKBOX}</span>
+	<div align="center">
+		<div data-enhance="{AUTHORIZENET}" data-role="none" data-ajax="false" >
+{PAYMENTSECTION}</div>	
+	</div>
 
 							<input type="hidden" name="required" value="Payment_Method">
 					
