@@ -25,7 +25,7 @@
 <!--=======================================================-->
 <!--                         CSS                           -->
 <!--=======================================================-->
-<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile.theme-1.2.0.min.css" /> <!--MS CDN -->
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> <!--MS CDN -->
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile_boi.css"/>
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/mobileaddtional.css" /> 
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jqm-icon-pack-2.1.2-fa.css" /> 
@@ -50,7 +50,7 @@
 			if($.trim($(this).text()) == "") {
 			  $(this).parent().parent().remove();
 			} else {
-			
+
 			}
 		});
 	});
@@ -60,6 +60,7 @@
     $("#videos").fitVids();  // Target your .container, .wrapper, .post, etc.
   });
 </script>
+
 <!--=======================================================-->
 <!--                         Defaults                      -->
 <!--=======================================================-->
@@ -86,42 +87,323 @@
 		<a href="/" data-icon="home" class="ui-btn-right">Home</a>
 	</div>
 
+		<div data-role="navbar" >
+			<ul>
+				<li><a href="/"><img src="images-mm/jquery/mobile/images/home.png" style="width:32px"></a></li>
+				<li><a href="#" data-role="button" id="navbar1"><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
+				<li><a href="#"  id="search"><img src="images-mm/jquery/mobile/images/search.png" style="width:32px"></a></li>
+				<li><a href="#" id="cart"><img src="images-mm/jquery/mobile/images/cart.png" style="width:32px"></a></li>
+			</ul>
+		</div><!-- /navbar -->
+		
+		
+		        <div data-role="collapsible-set">
+		<div id="navbar-expand"  data-role="collapsible" data-collapsed="true" data-theme="a">
+			<div data-role="controlgroup" data-theme="a">
+				<a href="index.html" data-role="button" data-theme="a">Yes</a>
+				<a href="index.html" data-role="button" data-theme="a">No</a>
+				<a href="index.html" data-role="button" data-theme="a">Maybe</a>
+			</div>
+		</div>
+		<div id="search-expand"  data-role="collapsible" data-collapsed="true" data-theme="b">
+			<div data-role="controlgroup" data-theme="b">
+				<form method="GET" action="search">
+					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"/>
+					<!-- <input type="submit" class="fancybutton2" value="Search" /> -->
+					</form>
+			</div>
+		</div>
+		<div id="cart-expand"  data-role="collapsible" data-collapsed="true" data-theme="b">
+			<div data-role="controlgroup" data-theme="b">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form method = "POST" action = "updatecart">
+	<input type="hidden" name="continuetext" value="Continue Shopping" >
+	<input type="submit" class="" name="submit" value="Continue Shopping" data-theme="e" data-icon="back" />
+</form>
+
+<div class="ui-grid-b" data-theme="a">
+	<div class="ui-block-a"></div>
+	<div class="ui-block-b" style="text-align:center"><h3>Cart</h3></div>
+	<div class="ui-block-c">
+		<!--<a href="#shipping" data-icon="forward"  data-role="button" class="ui-btn-right"  style="float:right;">Checkout</a> -->
+	</div>
+
+</div><!-- /grid-a -->
+
+<span class="errormessage"><strong>{MESSAGE}</strong></span>
+
+<form method = "POST" action = "updatecart">
+
+<div  data-content-theme="c">
+<!-- NAME: view_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: view_cart_list_row -->
+				
+				<div style="position:relative;overflow:hidden;">
+					<div class="size1of4 unit">
+						<img src="{th_product_image1}" style="float:left;margin-right:5px;">
+					</div>
+				
+					<div class="size3of4 unit">
+						<div  class="mlm">
+						<div style="font-size:12px;">
+					 	 <a href = "page_{product_id}">{product_name}</a> <b>{catalog_id}</b><br />
+					 	 {price} &nbsp;&nbsp;
+						</div>
+					 	 <div class="ui-grid-a" data-theme="a">
+					 	 		<div class="ui-block-a ">
+					 	 			<div class="unit mtm"> 
+					 	 				<label>Qty:</label>
+					 	 			</div> 
+					 	 			<div class="unit">
+					 	 			
+					 	 				<input type="text" size = "2" maxsize = "5"  name="qty[{item_id}]" value="{qty}"  data-mini="true" style="width:120%;max-width:100px;"/>
+					 	 			</div>
+					 	 		
+					 	 		</div>
+					 	 		<div class="ui-block-b mtm"> 
+						 	 			 Total: {extended_price}
+					 	 		</div>
+					 	 </div>
+	
+					 	 
+					 	<br>
+					</div>
+					  <!-- UNCOMMENT IF SITE HAS OPTIONS -->{options1} {options2} {options3}
+					  <input type="HIDDEN" name="keyfield[{item_id}]" value="{item_id}">
+
+					  <input type="HIDDEN" name="xqty[{item_id}]" value="{qty}">
+					 </div>
+				</div>
+			<div class="clearfix"></div>
+			
+			<div class="mbm">
+			  <a href = "remove?item={item_id}"><input type = "button" class ="removecartbutton" value="Remove" data-mini="true" data-icon="delete"></a>
+			</div>
+	<!-- END DYNAMIC BLOCK: view_cart_list_row -->
+	<!-- END: view_cart_list.html -->
+</div>
+<div class="clearfix"></div>
+	<div class="shadedbox mtm"><strong>Cart Total: {total_price}</strong></div>
+
+
+<div>
+	<hr>
+	<div class="ui-grid-a" data-theme="a">
+		<div class="ui-block-a">		
+			<input data-theme="e" type="submit" name="submit" value="Recalculate" data-icon="star"/>
+		</div>
+		<div class="ui-block-b">
+			<input type="hidden" name="startovertext" value="Clear Cart" />
+			<input  type="submit" class="fancybutton2" name="submit" value="Clear Cart" data-theme="a"  data-icon="delete"/>
+		</div>
+	</div>
+</div>
+
+<div  data-role="collapsible" data-content-theme="b" data-theme="e" >
+<h3>Order Info</h3>
+{order_info}
+</div>
+
+<script>
+	$(document).ready(function () {
+  		$('.targetedforjquery').empty();
+	});
+</script>
+
+
+
+
+<div id="cartcontent">
+
+
+
+
+
+	<hr>
+	
+	
+	
+<div data-role="collapsible" data-content-theme="b">
+   <H3>Enter Your Coupon Code</H3>
+		<input type ="text" id="coupon_code" name="coupon_code" value="{coupon_code}" size = "7" maxsize = "15"placeholder="Enter your coupon code here:"/>  
+</div>
+	
+	
+	
+	
+	
+	
+	
+	
+		<a name="shipping"></a>
+		<hr>
+		{SHIP_SECTION}
+
+<div  data-role="collapsible" data-content-theme="b" data-theme="e" >
+<h3>Shipping Information</h3>
+		{shipping_notes}
+</div>
+		
+		<p>Shipping Method: {SHIPMENU}</p>
+	
+	<div class="shadedbox"><strong>Total Charges: {total_charge}</strong></div>
+
+		<!--  <input type="hidden" name="last_page" value="{LASTPAGE}" />
+		<input type="hidden" name="goto" value="{LASTPAGE}" /> -->
+
+
+		<div class="" data-type="horizontal" data-role="controlgroup">
+		
+			<input type="hidden" name="continuetext" value="Continue Shopping" >
+			<input type="submit" class="fancybutton2" name="submit" value="Continue Shopping" data-theme="e" data-icon="back" />
+		
+		
+
+
+			<input type="hidden" name="checkoutbuttontext" value="Check Out" />
+		</div>
+		<hr>	
+					<input class="" type="submit" name="submit" data-theme="b" value="Check Out" {UPS_JAVASCRIPT} data-icon="arrow-r"/>
+
+		<hr>
+		
+		
+</div>
+</form>
+<!--loggedout 
+
+<div data-role="collapsible" data-content-theme="a" data-theme="a">
+   <H3>Sign into your acccount</H3>
+	<div>
+<form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
+	
+	<p>
+	<table width = "100%" cellpadding = "3" cellspacing = "0" border="1" bgcolor="#eaeaea"> 
+		<tr>
+			<td width="38%">
+			
+					<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.
+			</td>
+			<td width="62%">
+					User Name: <input type="text" name = "account_name" size = "15" style="width:90%;"><br>
+					Password: 
+					<input type="hidden" name = "goto" value = "checkout" size = "10" style="width:90%;">
+					<input type="password" name = "account_password" size =  "15" style="width:90%;">
+					<br>
+					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear">
+				
+				</span>
+			</td>
+		</tr>
+</table> 
+
+</form>
+	</div>
+</div>
+loggedout-->
+
+<!-- 
+<form action = "sendestimate" method="post">
+	{emailcart}
+	<input type="hidden" name="estimatebuttontext" value="Create Estimate">
+	<div align="center">
+		<input type = "text" name = "Email_Address">
+
+		<br>
+		<button type="submit" name="viewestimate" >Check Out Later</button>
+	</div> 
+</form> -->
+
+<p>{UPSNOTICE}</p>
+
+
+
+<!--loggedin
+<hr><br>
+
+<a href="logout" data-role="button">Log Out</a> 
+
+loggedin-->
+
+
+<!--/view_cart_list.html-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		        
+		        
+	
+	
+	</div>
+		
 	<div data-role="content" >
+	
 		<div class="content-primary" >
 			<div class="insertlist1">{BREADCRUMB}</div>
 			<div class="targetedforjquery">
 				<div style="text-align:center;">
-					<form method="GET" action="search">
-					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"/>
-					<!-- <input type="submit" class="fancybutton2" value="Search" /> -->
-					</form>
+					
 				</div>
 			</div>
+			
+			
+			<h1>Main Menu</h1>
+			
+			
+
+
 <!--=======================================================-->
 <!--                     Page Content                      -->
 <!--=======================================================-->
-			{PAGECONTENT}
+			
 		</div>
 		<div class="content-secondary"><!-- Navigation -->
-			<h1>Main Menu</h1>
-			<ul  data-role="listview" data-inset="true" data-filter="false">
-				<!--insert|categories|1||<li><a href="<<link_action>>"><<cat_name>></a>|10|||-->
-				<!--noinsert|categories|1|flag2|<li><a href="<<link_action>>" class="<<inpath>>"><<cat_name>></a></li>|10|||-->
-			</ul>
+						
+			{PAGECONTENT}
 			
-			<ul data-role="listview" data-inset="true" data-filter="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow mtm">
-				<!--insert|categories|0|flag1|<li><a href="<<link_action>>"><<cat_name>></a></li>|-->
-				<li><a href="contact_main.html">Contact Us</a	></li>
-				<!--	<li><a href="http://www.glasscraftinc.com?switcher=true">Desktop Site</a></li> -->
-				<li><a href="viewcart">View Cart</a></li>
-				<!-- Delete me if customer doesnt have accounts -->
-				<!--loggedout 
-				<li><a href="login">Sign In</a></li>  loggedout-->
-				<!--loggedin
-				<li><a href="orderhistory">View Order History</a></li>
-				<li><a href="logout">Log Out</a></li>
-				 loggedin-->
-			</ul>
 		</div><!--Secondary navigation-->
 	</div><!--/content-->
 <!--=======================================================-->
@@ -134,4 +416,15 @@
 	</div> <!--/Close Mobile Data role page -->
   <!-- END Mobile main template-->
 </body>
+<script>
+$('#navbar1').click(function() {
+    $('#navbar-expand').trigger('expand');
+});
+$('#search').click(function() {
+    $('#search-expand').trigger('expand');
+});
+$('#cart').click(function() {
+    $('#cart-expand').trigger('expand');
+});
+</script>
 </html>
