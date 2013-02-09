@@ -82,12 +82,14 @@
 <div data-role="page" > <!--Open Mobile Data role page -->
 	<div data-role="header" data-position="inline">
 		<!-- <div id="banner"><div id="logo"><a href="/"><img src="images/mobile_logo.png" border="0" alt="{meta_description}"></a></div></div> --><!--/banner-->
-		<!--session{CARTINFO}session-->
+		<!-- session{CARTINFO}session
 		<h1 style="color:white;">{total_qty} items/{total_price}</h1>
-		<a href="/" data-icon="home" class="ui-btn-right">Home</a>
+		<a href="/" data-icon="home" class="ui-btn-right">Home</a> -->
+		<h1>{store_name}</h1>
+		<a href="{store_phone1}" data-icon="gear" data-role="button"  class="ui-btn-right">Phone</a>
 	</div>
 
-		<div data-role="navbar" id="nav-main">
+		<div data-role="navbar" id="nav-main" >
 			<ul>
 				<li><a href="/"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/home.png" style="width:32px"></a></li>
 				<li><a href="#" data-role="button" id="navbar1"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
@@ -114,8 +116,8 @@
 			
 		</div>
 		
-		<div data-role="collapsible-set">
-			<div id="navbar-expand"  data-role="collapsible" data-collapsed="true" data-theme="a">
+		<div data-role="collapsible-set" >
+			<div id="navbar-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" >
 		
 			<ul data-role="listview" data-inset="true" data-filter="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow mtm"  data-theme="a">
 				<!--insert|categories|1||<li><a href="<<link_action>>" ><<cat_name>></a></li>|10|||-->
@@ -381,45 +383,84 @@ loggedin-->
 	</div> <!--/Close Mobile Data role page -->
   <!-- END Mobile main template-->
 </body>
+
+
+<!--=======================================================-->
+<!--                  Beta Menu Button Script              -->
+<!--=======================================================-->
 <script>
-
-/*$('#navbar1').click(function() {
-	if ($('#navbar-expand').trigger('collapse')) {
-		$('#navbar-expand').trigger('expand');
-	} else if ($('#navbar-expand').trigger('expand')){
-   	 	$('#navbar-expand').trigger('collapse');
-    }
-}); */
-$('#search').click(function() {
-    $('#search-expand').trigger('expand');
-});
-$('#cart').click(function() {
-    $('#cart-expand').trigger('expand');
-});
-</script>
+var toggleHamburger = true;
+var toggleCart = true;
+var toggleSearch = true;
 
 
-<script>
-var toggleSettings = true;
-
-var expandSettings = function() {
+var expandHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content-collapsed").each(function(){
   	 $('#navbar-expand').trigger('expand');
   	});
 }
-var collapseSettings = function() {
-	
+var expandCart= function() {
+	$("#cart-expand").children(".ui-collapsible-content-collapsed").each(function(){
+  	 $('#cart-expand').trigger('expand');
+  	});
+}
+var expandSearch= function() {
+	$("#search-expand").children(".ui-collapsible-content-collapsed").each(function(){
+  	 $('#search-expand').trigger('expand');
+  	});
+}
+
+var collapseHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content").each(function(){
   	 $('#navbar-expand').trigger('collapse');
+  	 
+  	});
+}
+var collapseCart = function() {
+	$("#cart-expand").children(".ui-collapsible-content").each(function(){
+  	 $('#cart-expand').trigger('collapse');
+  	});
+}
+var collapseSearch = function() {
+	$("#search-expand").children(".ui-collapsible-content").each(function(){
+  	 $('#search-expand').trigger('collapse');
   	});
 }
 $("#navbar1").click(function() {
-	if(toggleSettings){
-	expandSettings();
-	toggleSettings = false;
+	if(toggleHamburger){
+	expandHamburger();
+	toggleHamburger = false;
+	toggleCart = true;
+	toggleSearch = true;
+	
 	} else {
-		collapseSettings();
-		toggleSettings = true;
+		collapseHamburger();
+		toggleHamburger = true;
+		$("#navbar1").removeClass("ui-btn-active");
+	}
+});
+
+$('#cart').click(function() {
+    if(toggleCart){
+	expandCart();
+	toggleCart = false;
+	toggleHamburger = true;
+	toggleSearch = true;
+	} else {
+		collapseCart();
+		toggleCart = true;
+	}
+});
+
+$('#search').click(function() {
+    if(toggleSearch){
+	expandSearch();
+	toggleSearch = false;
+	toggleHamburger = true;
+	toggleCart = true;
+	} else {
+		collapseSearch();
+		toggleSearch = true;
 	}
 });
 </script>
