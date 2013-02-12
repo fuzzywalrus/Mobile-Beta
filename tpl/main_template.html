@@ -139,10 +139,10 @@
 			</ul>
 			
 		</div>
-		<div id="search-expand"  data-role="collapsible" data-collapsed="true" data-theme="b">
-			<div data-role="controlgroup" data-theme="b">
+		<div id="search-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a">
+			<div data-role="controlgroup" data-theme="a" data-inset="true" >
 				<form method="GET" action="search">
-					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"/>
+					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"  data-theme="a"/>
 					<!-- <input type="submit" class="fancybutton2" value="Search" /> -->
 					</form>
 			</div>
@@ -345,10 +345,7 @@ loggedin-->
 
 			</div>
 		</div>
-		        
-		        
-	
-	
+
 	</div>
 		
 	<div data-role="content" >
@@ -361,7 +358,6 @@ loggedin-->
 				</div>
 			</div>
 			
-
 <!--=======================================================-->
 <!--                     Page Content                      -->
 <!--=======================================================-->
@@ -397,6 +393,7 @@ var toggleSearch = true;
 var expandHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content-collapsed").each(function(){
   	 $('#navbar-expand').trigger('expand');
+
   	});
 }
 var expandCart= function() {
@@ -413,12 +410,13 @@ var expandSearch= function() {
 var collapseHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content").each(function(){
   	 $('#navbar-expand').trigger('collapse');
-  	 
+  	 $('#navbar1').removeClass('ui-btn-active');
   	});
 }
 var collapseCart = function() {
 	$("#cart-expand").children(".ui-collapsible-content").each(function(){
   	 $('#cart-expand').trigger('collapse');
+  	 
   	});
 }
 var collapseSearch = function() {
@@ -428,10 +426,11 @@ var collapseSearch = function() {
 }
 $("#navbar1").click(function() {
 	if(toggleHamburger){
-	expandHamburger();
-	toggleHamburger = false;
-	toggleCart = true;
-	toggleSearch = true;
+		
+		expandHamburger();    
+		toggleHamburger = false;
+		toggleCart = true;
+		toggleSearch = true;
 	
 	} else {
 		collapseHamburger();
@@ -441,8 +440,10 @@ $("#navbar1").click(function() {
 });
 
 $('#cart').click(function() {
+
     if(toggleCart){
 	expandCart();
+	
 	toggleCart = false;
 	toggleHamburger = true;
 	toggleSearch = true;
@@ -463,6 +464,15 @@ $('#search').click(function() {
 		toggleSearch = true;
 	}
 });
+  	 $('#navbar-expand').bind('expand', function () { $('#navbar-expand').children().slideDown(700);});
+  	 $('#navbar-expand').bind('collapse', function () { $('#navbar-expand').children().slideUp(700);});
+  	 
+  	 $('#search-expand').bind('expand', function () { $('#search-expand').children().slideDown(400);});
+  	 $('#search-expand').bind('collapse', function () { $('#search-expand').children().slideUp(400);});
+  	 
+  	 $('#cart-expand').bind('expand', function () { $('#cart-expand').children().slideDown(700);});
+  	 $('#cart-expand').bind('collapse', function () { $('#cart-expand').children().slideUp(700);});
+
 </script>
 
 </html>
