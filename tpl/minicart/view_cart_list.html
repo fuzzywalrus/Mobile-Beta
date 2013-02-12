@@ -1,0 +1,42 @@
+
+
+<table class="minicart txtT">
+<thead>
+<tr class="tertiary">
+	<th width="40%">&nbsp;</th>
+	<th width="40%;">
+		Quantity
+	</th>
+	<th width="20%;" class="txtR">
+		Price
+	</th>
+</tr>
+</thead>
+<tbody>
+<!-- NAME: view_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: view_cart_list_row -->
+
+		<tr>
+        	<td colspan="3" class="title">
+            	<a href="page_{product_id}_{parent_id}" target="_parent">{product_name}</a>
+            </td>
+        </tr>
+
+		<tr>
+			<td class="product">
+				<a href="page_{product_id}_{parent_id}" target="_parent"><img src="{th_product_image1}" height="40px" alt="{product_name}"/></a>
+			</td>
+			<td>{display_price} &times; {qty}</td>
+			<td class="txtR">{extended_price}</td>
+		</tr>
+
+
+	<!-- END DYNAMIC BLOCK: view_cart_list_row -->
+	<!-- END: view_cart_list.html -->
+</tbody>
+<tfoot>
+		<tr>
+			<td colspan="3"></td>
+		</tr>
+</tfoot>
+</table>

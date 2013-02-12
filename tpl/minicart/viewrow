@@ -1,0 +1,53 @@
+		<tr valign="top">
+			<td width="200" align="center">
+				<br>
+				<!--{RELATIVEURL}/images/blank_tags/{item_custom1}.jpg-->
+				<img name="tag" src="http://www.loveyourpets.com/images/blank_tags/{item_custom1}{item_custom2}.jpg" height="75">
+				<div class="display{item_id}">
+				<input class="edit{item_custom1}" id="item-{item_id}" type="button" name="edit" value="Edit Tag" style="background: #8c0821; font-size: 11px; color:#ffffff;width:120px">
+				<input class="remove{item_custom1}" id="remove-{item_id}" type="button" name="edit" value="Remove Tag" style="background: #8c0821; font-size: 11px; color:#ffffff;width:120px">
+				</div>
+				<div class="update{item_id}" style="display:none">
+				<input type="button" id="save-{item_id}" name="save" value="Save Changes" style="background: #8c0821; font-size: 11px; color:#ffffff;width:120px">
+				<input type="button" name="cancel" value="Cancel Changes" onClick="$('.update{item_id}').hide();$('.display{item_id}').show();" style="background: #8c0821; font-size: 11px; color:#ffffff;width:120px">
+				</div>
+			</td>
+			
+			<td valign="top" width="200"><div class="display{item_id}"><div id="showline1{item_id}">{petname}</div>
+			<div id="showline2{item_id}">{line1}</div>
+			<div id="showline3{item_id}">{line2}</div>
+			<div id="showline4{item_id}">{line3}</div>
+			<div id="showline5{item_id}">{line4}</div>
+			<div id="showline6{item_id}">{line5}</div>
+			</div>
+			<div class="update{item_id}" style="display:none">
+				<ul>
+    <li><label id="label1" for="text1"></label><input type="text" id="line1{item_id}" name="petname" size="27" value="{petname}"/></li>
+     	<li><span id="error1" style="display:none"><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline1" style="display:none"><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     <li><label id="label2" for="text2"></label><input type="text" id="line2{item_id}" name="line1" size="27" value="{line1}" /></li>
+     	<li><span id="error2" style="display:none"><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline2" style="display:none"><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     <li><label id="label3" for="text3"></label><input type="text" id="line3{item_id}" name="line2" size="27"  value="{line2}"/></li>
+     	<li><span id="error3" style="display:none"><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline3" style="display:none"><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     <li><label id="label4" for="text4"></label><input type="text" id="line4{item_id}" name="line3" size="27"  value="{line3}"/></li>
+     	<li><span id="error4" style="display:none"><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline4" style="display:none"><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     <li><label id="label5" for="text5"></label><input type="text" id="line5{item_id}" name="line4" size="27"  value="{line4}"/></li>
+     	<li><span id="error5" style="display:none"><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline5" style="display:none"><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     <li><label id="label6" for="text6"></label><input type="text" id="line6{item_id}" name="line5" size="27"  value="{line5}"/></li>
+     	<li><span id="error6" style="display:none"><br/><span class="warning">You have reached the maximum amount of characters.</span></span></li>
+     	<li><span id="charErrorline6" style="display:none"><br/><span class="warning">This character cannot be printed on the tag.</span></span></li>
+     </ul>
+			</div>
+
+			 </td>
+			 <td><div class="display{item_id}">{qty}</div><div class="update{item_id}" style="display:none"><input type="text" id="qty{item_id}" name="qty" size="3" value="{qty}"/></div></td>
+			<td>{extended_price}</td>
+		</tr>
+		<tr width="90%">
+			<td colspan="4"><hr>
+			</td>
+		</tr>
