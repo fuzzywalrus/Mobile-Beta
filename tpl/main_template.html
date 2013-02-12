@@ -4,7 +4,7 @@
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.23-->
+<!--v.24-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -60,7 +60,6 @@
     $("#videos").fitVids();  // Target your .container, .wrapper, .post, etc.
   });
 </script>
-
 <!--=======================================================-->
 <!--                         Defaults                      -->
 <!--=======================================================-->
@@ -71,6 +70,7 @@
 <!--DEFAULT BREADCRUMB=={YOUAREHERE}-->
 <!--DEFAULT REVIEWCAT=={ INSERT CAT}-->
 <!--DEFAULT AUTHORIZENET=={TRUE}--> <!-- Change this to false for Paypal/PayJunction to make confirmorder work -->
+
 <!-- checkout configs (Set to none to hide these sections) -->
 <!--DEFAULT DISPLAYSPLITORDERS==none-->
 <!--DEFAULT DISPLAYSHIPSECTION==none--> 
@@ -94,7 +94,7 @@
 				<li><a href="/"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/home.png" style="width:32px"></a></li>
 				<li><a href="#" data-role="button" id="navbar1"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
 				<li><a href="#"  id="search"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/search.png" style="width:32px"></a></li>
-				<li><a href="viewcart" id="cart"><span style="position:relative;top:-9px;">{total_qty}<span>&nbsp;</span></span><img src="images-mm/jquery/mobile/images/cart.png" style="width:32px"></a></li>
+				<li><a href="#" id="cart"><span style="position:relative;top:-9px;">{total_qty}<span>&nbsp;</span></span><img src="images-mm/jquery/mobile/images/cart.png" style="width:32px"></a></li>
 			</ul>
 		</div><!-- /navbar -->
 		<div style="display:none;">
@@ -112,8 +112,6 @@
 				<li><a href="logout">Log Out</a></li>
 				 loggedin-->
 			</ul>
-
-			
 		</div>
 		
 		<div data-role="collapsible-set" >
@@ -146,27 +144,26 @@
 					<!-- <input type="submit" class="fancybutton2" value="Search" /> -->
 					</form>
 			</div>
-			
 		</div>
-		<div id="cart-expand"  data-role="collapsible" data-collapsed="true" data-theme="b">
-			<div data-role="controlgroup" data-theme="b">
 		
-
-
-<!--==========================================================-->
-<!--                         View cart                        -->
-<!--==========================================================-->
-
-<!--session <div class="mam"><div class="line mbm"><div class="unit size1of2">Items: {total_qty}</div><div class="unit size1of2 lastUnit txtR">Total Price: {total_price}</div></div><div class="minicart osv">&nbsp;</div><div class="txtR mvm"><a href="viewcart" class="button action mlm">Checkout</a></div></div>session--><!--nosession <p>Your cart is empty.</p> nosession-->
-
-<!--==========================================================-->
-<!--                        /View cart                        -->
-<!--==========================================================-->
-
-
-
+		<!--==========================================================-->
+		<!--                         View cart                        -->
+		<!--==========================================================-->
+		<div id="cart-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a">
+			<div data-role="controlgroup" data-theme="a" data-inset="true">
+								<!--session 
+<div class="ui-grid-b mbm">
+<div class="ui-block-a"> &nbsp; </div>
+<div class="ui-block-b">Items: {total_qty}</div>
+<div class="ui-block-c">Total Price: {total_price}</div>
+</div>
+<div class="minicart pbl">&nbsp;</div>
+<a href="viewcart" data-role="button">Checkout</a></session--><!--nosession <p>Your cart is empty.</p> nosession-->
 			</div>
 		</div>
+		<!--==========================================================-->
+		<!--                        /View cart                        -->
+		<!--==========================================================-->
 
 	</div>
 		
@@ -223,7 +220,11 @@ var expandSearch= function() {
   	 $('#search-expand').trigger('expand');
   	});
 }
-
+var expandCart= function() {
+	$("#cart-expand").children(".ui-collapsible-content-collapsed").each(function(){
+  	 $('#cart-expand').trigger('expand');
+  	});
+}
 var collapseHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content").each(function(){
   	 $('#navbar-expand').trigger('collapse');
@@ -256,7 +257,7 @@ $("#navbar1").click(function() {
 	}
 });
 
-/* $('#cart').click(function() {
+ $('#cart').click(function() {
 
     if(toggleCart){
 	expandCart();
@@ -269,7 +270,7 @@ $("#navbar1").click(function() {
 		toggleCart = true;
 	}
 });
-*/
+
 
 $('#search').click(function() {
     if(toggleSearch){
@@ -288,9 +289,16 @@ $('#search').click(function() {
   	 $('#search-expand').bind('expand', function () { $('#search-expand').children().slideDown(400);});
   	 $('#search-expand').bind('collapse', function () { $('#search-expand').children().slideUp(400);});
   	 
-  	// $('#cart-expand').bind('expand', function () { $('#cart-expand').children().slideDown(700);});
-  	// $('#cart-expand').bind('collapse', function () { $('#cart-expand').children().slideUp(700);});
+  	 $('#cart-expand').bind('expand', function () { $('#cart-expand').children().slideDown(700);});
+  	 $('#cart-expand').bind('collapse', function () { $('#cart-expand').children().slideUp(700);});
+  	
 
+</script>
+
+<script>
+	$.get('viewcart?stpl=minicart', function(data) {
+	  $('.minicart').html(data);
+	});
 </script>
 
 </html>
