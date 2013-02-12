@@ -11,10 +11,9 @@ $(document).ready(function() {
 	 {MESSAGE} <br> <a data-theme="e" data-role="button" href="viewcart">View Cart</a>
 </div>
 
-<a href="#additionalviews">
-	<img src="{product_image1}"  border="0" alt="{product_name}" />
-</a>
-
+<div class="centered">
+<a href="#additionalviews"><img src="{product_image1}"  border="0" alt="{product_name}" /></a>
+</div>
 <h1>{product_name}</h1>
 		<!--{product_flag1}_on <span class="highlight">Featured!</span>{product_flag1}_on-->
 		<!--{product_flag2}_on <span class="highlight">Sale!</span> {product_flag2}_on-->
@@ -28,7 +27,7 @@ $(document).ready(function() {
 	<a name="additionalviews"></a>
 	<div class="ui-grid-b"id="Gallery" class="product-gallery">
 		<div class="ui-block-a centered">
-			<a href="{RELATIVEURL}/{product_image2}"  rel="external"><img src="{th_product_image2}"></a>
+			<a href="{RELATIVEURL}/{product_image2}"  rel="external" alt="Swipe To Continue"><img src="{th_product_image2}"></a>
 		</div>
 		<div class="ui-block-b centered">
 			<a href="{RELATIVEURL}/{product_image3}"  rel="external"><img src="{th_product_image3}"></a>
