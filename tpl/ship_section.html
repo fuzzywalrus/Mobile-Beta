@@ -1,55 +1,15 @@
 <!--Ship Section-->
 <h3>Shipping <!-- <a href="{BASEURL}/home/{STOREID}/shipping_popup.html">???</a> --></h3>
 <div class = "errormessage">{ups_note}</div>
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-    	<legend>Order will be shipped to:</legend>
-			<label for="Residential">Residential</label>
-    		<input type = "radio" name = "deliver_to" value = "Residential" {checked_Residential} id="Residential"/>
-    		
-         	<label for="Business">Business</label>
-    		<input type = "radio" name = "deliver_to" value = "Business" {checked_Business} id="Business"/
-   	</fieldset>
-
-</div>
-<p></p>
-
-
-
-
-
-
-<p>
 <label>Postal/Zip Code</label>
 
-<!--<form action = "sendestimate" method="post">
-	{emailcart}
-	<input type="hidden" name="estimatebuttontext" value="Create Estimate">
-	<div align="center">
-		<input type = "text" name = "Email_Address">
-
-		<br>
-		<button type="submit" name="viewestimate" >Check Out Later</button>
-	</div> 
-</form> -->
-
-<!--
-<p>
-<label>2 Letter Country Code <span class="hintclick"><a href = "{BASEURL}/home/{STOREID}/country_codes.html">?</a></span></label>
-<input type = "text" name = "ship_to_country" value = "{ship_to_country}" size = "2" maxlength = "2" style="-wap-input-format:AA" />
-</p> -->
-
-<!-- style=" border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;" -->
-<fieldset class="ui-grid-b">
+<fieldset class="ui-grid-a">
     <div class="ui-block-a"  >
-		<input type = "text" name = "ship_to_zip" value = "{ship_to_zip}" size = "6" maxlength = "20" />
+		<div class="prm">
+			<input type = "text" name = "ship_to_zip" value = "{ship_to_zip}" maxlength = "20" />
+		</div>
 	</div>
     <div class="ui-block-b" >
-    
-
-
-
-
 
 <div data-role="controlgroup"  data-type="horizontal" >
 
@@ -310,6 +270,50 @@
 </div>
     </div>
 </fieldset>
+
+<div data-role="fieldcontain">
+    <fieldset data-role="controlgroup">
+    	<legend>Order will be shipped to:</legend>
+			<label for="Residential">Residential</label>
+    		<input type = "radio" name = "deliver_to" value = "Residential" {checked_Residential} id="Residential"/>
+    		
+         	<label for="Business">Business</label>
+    		<input type = "radio" name = "deliver_to" value = "Business" {checked_Business} id="Business"/
+   	</fieldset>
+
+</div>
+<p></p>
+
+
+
+
+	<div  data-role="collapsible" data-content-theme="b" data-theme="e" data-mini="true"  >
+<h3>Shipping Information</h3>
+		{shipping_notes}
+		<p>{UPSNOTICE}</p>
+
+</div>
+
+<p>
+
+<!--<form action = "sendestimate" method="post">
+	{emailcart}
+	<input type="hidden" name="estimatebuttontext" value="Create Estimate">
+	<div align="center">
+		<input type = "text" name = "Email_Address">
+
+		<br>
+		<button type="submit" name="viewestimate" >Check Out Later</button>
+	</div> 
+</form> -->
+
+<!--
+<p>
+<label>2 Letter Country Code <span class="hintclick"><a href = "{BASEURL}/home/{STOREID}/country_codes.html">?</a></span></label>
+<input type = "text" name = "ship_to_country" value = "{ship_to_country}" size = "2" maxlength = "2" style="-wap-input-format:AA" />
+</p> -->
+
+<!-- style=" border-top-left-radius: 5px;border-top-right-radius: 5px;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;" -->
 
 <input class="button" type="submit" name="submit" value="Calculate Shipping"  data-theme="b"  data-role="button"/>
 <!--/Ship Section-->

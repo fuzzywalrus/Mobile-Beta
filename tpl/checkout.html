@@ -10,14 +10,7 @@ Billing and Shipping Information<br>
 	<br /><span class="errormessage">{MESSAGE}</span>
 <div style="clear:both;"></div>
 
-<div class="buttons">
-	<form action = "docart" method = "POST">
 
-	<input type="hidden" name="continuetext" value="Continue Shopping" />
-	<input class="fancybutton2" type="submit" name="submit" value="Continue Shopping" data-theme="e"  data-icon="back" />
-
-	</form>
-</div>
 <hr>
 
 
@@ -25,6 +18,7 @@ Billing and Shipping Information<br>
 {ORDERSUMMARY}
 </div>
 
+	
 
 <!--
 <form action =  "{SECUREURL}/login" method = "post">
@@ -72,6 +66,7 @@ Password: <input type="hidden" name = "goto" value = "checkout" size = "10"><inp
 </div>
 loggedout-->
 
+<br>
 {CREATE_ACCOUNT}
 
 
@@ -225,8 +220,16 @@ Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class
 
 
 <b>Comments:</b><br /><textarea name="Comments" rows="5" wrap="virtual">{Comments}</textarea><br />
+<div data-role="collapsible" data-content-theme="b">
+   <H3>Enter Your Coupon Code</H3>
+		<input type ="text" id="coupon_code" name="coupon_code" value="{coupon_code}" size = "7" maxsize = "15"placeholder="Enter your coupon code here:"/>  
+</div>
 
+<!--=============================-->
+<!--          Gift message       -->
+<!--=============================-->
 
+<!--
 <div data-role="fieldcontain">
     <fieldset data-role="controlgroup">
     	<legend>This order is a gift:</legend>
@@ -240,10 +243,15 @@ Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class
 </div>
 
 
+<b>Gift Message:</b><br /><textarea name="Gift_Message" rows="5" wrap="virtual">{Gift_Message}</textarea><br />--->
 
-<b>Gift Message:</b><br /><textarea name="Gift_Message" rows="5" wrap="virtual">{Gift_Message}</textarea><br />
-Where did you hear about us?<br />
-<input name="Source" value="{Source}" size="25" maxlength="50" /><br />
+<!--=============================-->
+<!--Where did you hear about us? -->
+<!--=============================-->
+
+
+<!--Where did you hear about us?<br />
+<input name="Source" value="{Source}" size="25" maxlength="50" /><br /> -->
 <!--loggedin
 <input type = "checkbox" name = "save_account_info" value = "Y">Save changes on this page to my account<br />
 loggedin-->

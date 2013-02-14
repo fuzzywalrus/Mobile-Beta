@@ -1,18 +1,56 @@
-<div class="ui-grid-b mbm">
-	<div class="ui-block-a">Product</div>
-	<div class="ui-block-b">Quantity</div>
-	<div class="ui-block-c">Price</div>
-</div><!-- /grid-b -->
+<div id="minicartTable" data-role="content" data-theme="a" style="z-index:1000;">
+<form method = "POST" action = "updatecart">
+	<table width="100%">
+		<tr style="background-color:#333;">
+			<td>
+				<div class="pas">Item</div>
+			</td>
+			<td>
+				<div class="pas">QTY</div>
+			</td>
+			<td>
+				<div class="pas">Price</div>
+			</td>
+		</tr>
+<!-- NAME: view_cart_list.html -->
+<!-- BEGIN DYNAMIC BLOCK: view_cart_list_row -->
+		<tr class=""> 
+	        <td class="" width="45%;">
+	        	<div class="line">
+	            	<div class="unit">
+	                	<div class="mrs">
+	                   	 <img src="{th_product_image1}" border="0" class="fullwidth" />
+	                    </div>
+	                </div>
+	                <div class="unit">
+	                    <span class="name block larger"><a href="page_{product_id}">{product_name}</a></span><br>
+	                    <span class="sku block">{catalog_id}</span>
+	                    <!--<a href="edititem?item_id={item_id}"><button type="button" class="text_small">Edit</button></a><br/>-->
+	                    <div class="plm">{options1} {options2} {options3}</div>
+	                    <div class="plm">{item_custom1} {item_custom2} {item_custom3}</div>
+	                    <div class="plm">{item_other_info}</div>
+	                </div>
+	            </div>
+	        </td>
+	        <td class="" width="25%;">
+	            <input type="hidden" name="keyfield[{item_id}]" value="{item_id}">
+	            <input type="hidden" name="xqty[{item_id}]" value="{qty}">
+	            <input type="text" size="2" maxlength="5" name="qty[{item_id}]" value="{qty}" class="quantity inline pixelborder" id="Quantity"/><br/>
+	            <!--<input type="button" class="nopadding text_small" value="x" onClick="window.navigate('{BASEHREF}remove?item={item_id}')"/>-->&nbsp;<a href="{BASEHREF}remove?item={item_id}">remove</a>
+	        </td>
 
-
-	<!-- NAME: view_cart_list.html -->
-	<!-- BEGIN DYNAMIC BLOCK: view_cart_list_row -->
-
-<div class="ui-grid-b view_cart_list_color"  data-theme="a">
-	<div class="ui-block-a"><a href="page_{product_id}_{parent_id}" target="_parent">{product_name}</a></div>
-	<div class="ui-block-b"><a href="page_{product_id}_{parent_id}" target="_parent"><img src="{th_product_image1}" alt="{product_name}"/></a></div>
-	<div class="ui-block-c">{display_price} &times; {qty}<br>{extended_price}</div>
+	        <td class="pls txtR" width="30%;">
+	        	<strong>Unit</strong>:<br><!--{sale_flag}_on <span class="strike">{original_price}</span> {sale_flag}_on-->{price} <br>
+	           <strong> Total</strong>:<br> {extended_price}
+	        </td>
+	    </tr>
+<!-- END DYNAMIC BLOCK: view_cart_list_row -->
+<!-- END: view_cart_list.html -->
+	</table>
+	<div class="ui-grid-a">
+		<div class="ui-block-a"><input data-theme="e" type="submit" name="submit" value="Recalculate" data-icon="star" data-mini="true"/></div>
+		<div class="ui-block-b"><a href="viewcart" data-role="button" data-theme="b" data-mini="true">Checkout</a></div>
+	</div>
+		
+</form>
 </div>
-
-	<!-- END DYNAMIC BLOCK: view_cart_list_row -->
-	<!-- END: view_cart_list.html -->

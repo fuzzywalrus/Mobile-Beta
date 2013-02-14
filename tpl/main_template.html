@@ -4,7 +4,7 @@
 <!-- Mobile Main Template -->
 <!--Header-->
 <head>
-<!--v.25-->
+<!--v.26-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -25,7 +25,7 @@
 <!--=======================================================-->
 <!--                         CSS                           -->
 <!--=======================================================-->
-<link rel="stylesheet" href="//code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> <!--MS CDN -->
+<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> <!--MS CDN -->
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile_boi.css"/>
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/mobileaddtional.css" /> 
 <link rel="stylesheet" href="{RELATIVEURL}/images-mm/jquery/mobile/jquery.mobile.ecommerce.pack-0.1.css" />
@@ -39,7 +39,116 @@
 <!-- <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-ignoreContentEnabled.js"></script> needed for data ignore -->
  <script src="{RELATIVEURL}/images-mm/jquery/jquery-mobile-disableajax.js"></script><!--This disables AJAX preloading, very important -->
 <script src="//ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>  <!--MS CDN -->
+
+<script>
+$(document).ready(function () {
+var toggleHamburger = true;
+var toggleCart = true;
+var toggleSearch = true;
+var minicartTable;
+
+
+var expandHamburger = function() {
+	$("#navbar-expand").children(".ui-collapsible-content-collapsed").each(function(){
+	 $('#cart-expand').height(0).slideUp(300); // overwrite if not effect
+  	 $('#navbar-expand').trigger('expand');
+
+  	});
+}
+var expandSearch= function() {
+	$("#search-expand").children(".ui-collapsible-content-collapsed").each(function(){
+	  $('#cart-expand').height(0).slideUp(300);  // overwrite if not effect
+  	 $('#search-expand').trigger('expand');
+  	});
+}
+var expandCart= function() {
+	 $('#cart-expand').height(0);
+	$("#cart-expand").children(".ui-collapsible-content-collapsed").each(function(){
+  	 $('#cart-expand').trigger('expand');
+  	 
+  	 // JQuery Mobile fix
+  	  minicartTable = $('.minicart').height();
+  	  $('.minicart').height(minicartTable) ;
+  	  // JQuery Animate
+	  $('#cart-expand').height(minicartTable).slideDown(300);
+  	});
+}
+var collapseHamburger = function() {
+	$("#navbar-expand").children(".ui-collapsible-content").each(function(){
+  	 $('#navbar-expand').trigger('collapse');
+  	 $('#navbar1').removeClass('ui-btn-active');
+  	});
+}
+var collapseCart = function() {
+	 $("#cart-expand").children(".ui-collapsible-content").each(function(){
+	 $('#cart-expand').height(0).slideUp(300);
+  	 $('#cart-expand').trigger('collapse');
+  	
+  	 
+  	});
+}
+var collapseSearch = function() {
+	$("#search-expand").children(".ui-collapsible-content").each(function(){
+  	 $('#search-expand').trigger('collapse');
+  	});
+}
+$("#navbar1").click(function() {
+	if(toggleHamburger){
+		
+		expandHamburger();    
+		toggleHamburger = false;
+		toggleCart = true;
+		toggleSearch = true;
+	
+	} else {
+		collapseHamburger();
+		toggleHamburger = true;
+		$("#navbar1").removeClass("ui-btn-active");
+	}
+});
+
+ $('#cart').click(function() {
+
+    if(toggleCart){
+	expandCart();
+	
+	toggleCart = false;
+	toggleHamburger = true;
+	toggleSearch = true;
+	} else {
+		collapseCart();
+		toggleCart = true;
+	}
+});
+
+
+$('#search').click(function() {
+    if(toggleSearch){
+	expandSearch();
+	toggleSearch = false;
+	toggleHamburger = true;
+	toggleCart = true;
+	} else {
+		collapseSearch();
+		toggleSearch = true;
+	}
+});
+  	 $('#navbar-expand').bind('expand', function () { $('#navbar-expand').children().slideDown(700);});
+  	 $('#navbar-expand').bind('collapse', function () { $('#navbar-expand').children().slideUp(700);});
+  	 
+  	 $('#search-expand').bind('expand', function () { $('#search-expand').children().slideDown(400);});
+  	 $('#search-expand').bind('collapse', function () { $('#search-expand').children().slideUp(400);});
+  	 
+  	 $('#cart-expand').bind('expand', function () { $('#cart-expand').children();});
+  	 $('#cart-expand').bind('collapse', function () { $('#cart-expand').children();});
+  	
+});
+</script>
+
+
 <script src="{RELATIVEURL}/images-mm/jquery/mobile/code.photoswipe.jquery-3.0.5.min.js"></script>
+
+
 <script src="{RELATIVEURL}/images-mm/jquery/mobile/jquery.fitvids.js"></script>
 <script language="JavaScript" type="text/javascript" src="{RELATIVEURL}/images-mm/hint.js"></script> <!--mm lib-->
 {JAVASCRIPT}
@@ -115,7 +224,7 @@
 		</div>
 		
 		<div data-role="collapsible-set" >
-			<div id="navbar-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" >
+			<div id="navbar-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" style="z-index:1000;">
 			<ul data-role="listview" data-inset="true" data-filter="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow mtm"  data-theme="a">
 				<!--insert|categories|1||<li><a href="<<link_action>>" ><<cat_name>></a></li>|10|||-->
 				<!--noinsert|categories|1|flag2|<li><a href="<<link_action>>" data-role="button" class="<<inpath>>"><<cat_name>></a></li>|10|||-->
@@ -136,7 +245,7 @@
 			</ul>
 			
 		</div>
-		<div id="search-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a">
+		<div id="search-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a" >
 			<div data-role="controlgroup" data-theme="a" data-inset="true" >
 				<form method="GET" action="search">
 					<input name="keywords" size="15" maxlength="25"  type="search" name="search" id="searc-basic"  data-theme="a"/>
@@ -148,7 +257,7 @@
 		<!--==========================================================-->
 		<!--                         View cart                        -->
 		<!--==========================================================-->
-		<div id="cart-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a">
+		<div id="cart-expand"  data-role="collapsible" data-collapsed="true" data-theme="a" class="ui-body-a" style="z-index:100;">
 			<!--session 
 			<div class="ui-grid-a mbm">
 			<div class="ui-block-a">Items: {total_qty}</div>
@@ -156,7 +265,6 @@
 			</div>
 			<hr>
 			<div class="minicart pbl">&nbsp;</div>
-			<a href="viewcart" data-role="button" data-theme="e">Checkout</a>
 			</session-->
 			<!--nosession <p>Your cart is empty.</p> nosession-->
 		</div>
@@ -166,10 +274,10 @@
 
 	</div>
 		
-	<div data-role="content" >
+	<div data-role="content" style="padding-top:0px;">
 	
 		<div class="" >
-			<div class="insertlist1">{BREADCRUMB}</div>
+			<div class="insertlist1"><h6  style="margin-top:0px;" >{BREADCRUMB}</h6></div>
 			<div class="targetedforjquery">
 				<div style="text-align:center;">
 					
@@ -190,7 +298,7 @@
 <!--=======================================================-->
 <!--                        Footer                         -->
 <!--=======================================================-->
-	<div data-role="footer" class="footer-docs" data-theme="c">
+	<div data-role="footer" class="footer-docs" data-theme="c" style="z-index:5;">
 			<p><a href="tel:{store_phone1}">{store_phone1}</a></p>
 			<p><span class="siteby">{MIGHTY}</span></p>
 			{ANALYTICS}
@@ -202,108 +310,18 @@
 <!--=======================================================-->
 <!--                  Beta Menu Button Script              -->
 <!--=======================================================-->
-<script>
-var toggleHamburger = true;
-var toggleCart = true;
-var toggleSearch = true;
 
-
-var expandHamburger = function() {
-	$("#navbar-expand").children(".ui-collapsible-content-collapsed").each(function(){
-  	 $('#navbar-expand').trigger('expand');
-
-  	});
-}
-var expandSearch= function() {
-	$("#search-expand").children(".ui-collapsible-content-collapsed").each(function(){
-  	 $('#search-expand').trigger('expand');
-  	});
-}
-var expandCart= function() {
-	$("#cart-expand").children(".ui-collapsible-content-collapsed").each(function(){
-  	 $('#cart-expand').trigger('expand');
-  	});
-}
-var collapseHamburger = function() {
-	$("#navbar-expand").children(".ui-collapsible-content").each(function(){
-  	 $('#navbar-expand').trigger('collapse');
-  	 $('#navbar1').removeClass('ui-btn-active');
-  	});
-}
-var collapseCart = function() {
-	$("#cart-expand").children(".ui-collapsible-content").each(function(){
-  	 $('#cart-expand').trigger('collapse');
-  	 
-  	});
-}
-var collapseSearch = function() {
-	$("#search-expand").children(".ui-collapsible-content").each(function(){
-  	 $('#search-expand').trigger('collapse');
-  	});
-}
-$("#navbar1").click(function() {
-	if(toggleHamburger){
-		
-		expandHamburger();    
-		toggleHamburger = false;
-		toggleCart = true;
-		toggleSearch = true;
-	
-	} else {
-		collapseHamburger();
-		toggleHamburger = true;
-		$("#navbar1").removeClass("ui-btn-active");
-	}
-});
-
- $('#cart').click(function() {
-
-    if(toggleCart){
-	expandCart();
-	
-	toggleCart = false;
-	toggleHamburger = true;
-	toggleSearch = true;
-	} else {
-		collapseCart();
-		toggleCart = true;
-	}
-});
-
-
-$('#search').click(function() {
-    if(toggleSearch){
-	expandSearch();
-	toggleSearch = false;
-	toggleHamburger = true;
-	toggleCart = true;
-	} else {
-		collapseSearch();
-		toggleSearch = true;
-	}
-});
-  	 $('#navbar-expand').bind('expand', function () { $('#navbar-expand').children().slideDown(700);});
-  	 $('#navbar-expand').bind('collapse', function () { $('#navbar-expand').children().slideUp(700);});
-  	 
-  	 $('#search-expand').bind('expand', function () { $('#search-expand').children().slideDown(400);});
-  	 $('#search-expand').bind('collapse', function () { $('#search-expand').children().slideUp(400);});
-  	 
-  	 $('#cart-expand').bind('expand', function () { $('#cart-expand').children().slideDown(700);});
-  	 $('#cart-expand').bind('collapse', function () { $('#cart-expand').children().slideUp(700);});
-  	
-
-</script>
 
 <script>
-
+$(document).ready(function () {
 	$.get('viewcart?stpl=minicart', function(data) {
 	  $('.minicart').html(data);
-	  $('.minicart').page();	  
-	//  $('.minicart').show(true);
-
+	  $('.minicart').page();	
+	  $('.minicart').show(true);
 	  //$('#navbar-expand').page();
 
 	});
+});
 </script>
 
 </html>
