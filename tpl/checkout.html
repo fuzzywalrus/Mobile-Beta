@@ -42,24 +42,20 @@ Password: <input type="hidden" name = "goto" value = "checkout" size = "10"><inp
 	<form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
 	
 	<p>
-	<table width = "100%" cellpadding = "3" cellspacing = "0" border="1" bgcolor="#eaeaea"> 
-		<tr>
-			<td width="38%">
 			
-					<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.
-			</td>
-			<td width="62%">
-					User Name: <input type="text" name = "account_name" size = "15" style="width:90%;"><br>
-					Password: 
-					<input type="hidden" name = "goto" value = "checkout" size = "10" style="width:90%;">
-					<input type="password" name = "account_password" size =  "15" style="width:90%;">
+					<h6>LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.</h6>
+
+
+
+					<strong>User Name: </strong>
+					<input type="text" name = "account_name" size = "15" data-mini="true"><br>
+					<strong>Password: </strong>
+					<input type="hidden" name = "goto" value = "checkout" size = "10">
+					<input type="password" name = "account_password" size =  "15" data-mini="true">
 					<br>
-					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear">
+					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear" data-mini="true">
 				
-				</span>
-			</td>
-		</tr>
-</table> 
+
 
 </form>
 	</div>
@@ -150,7 +146,7 @@ Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class
 </div>	
 
 
-<input type = "button" name="Copy"  data-theme="b"  value ="Copy Billing Info to Shipping" onclick = "copyFields(this.form)" />
+<br><input type = "button" name="Copy"  data-theme="b"  value ="Copy Billing Info to Shipping" data-mini="true" onclick = "copyFields(this.form)" />
 
 	</div>
 
