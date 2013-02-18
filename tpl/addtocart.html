@@ -1,5 +1,6 @@
 <!-- Add to cart -->
-<form method = "POST" action = "addtocart">
+{menu_def}
+<FORM METHOD = "POST" NAME = "add_to_cart{product_id}" ACTION = "addtocart" onSubmit = "return check_options('add_to_cart{product_id}')">
 	<input type="hidden" name="product_id" value="{product_id}"/>
 	<input type="hidden" name="related_id" value="{product_id}">
 	<input type="hidden" name="goto" value="samepage">
