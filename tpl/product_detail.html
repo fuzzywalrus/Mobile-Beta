@@ -21,6 +21,12 @@ $(document).ready(function() {
 		&nbsp;<span class="freeship"><!--{free_shipping}_on 'Ships Free!' {free_shipping}_on--></span>
 		<br />
 		
+<!-- price -->
+	<INPUT TYPE="hidden" NAME="max_qty" value="{qty_on_hand}" />-->
+	<!--set $zero_price and $non_zero_price in the config file -->
+	<span class="highlight"><!--{product_flag2}_on <span class="onsale">Now</span>  {product_flag2}_on--> <!--{sale_flag}_on <span class="onsale">On Sale</span><br> {sale_flag}_on--><!--wholesale Retail Price: {retail_price}<br /> wholesale-->
+				<!--wholesale Wholesale: wholesale-->{display_price}</span><br />
+<!--/price -->		
 <!--Additional views, Open by Default, change data-collapsed to true to have default behavior collapsed -->
 <div data-theme="b" data-content-theme="d" data-role="collapsible" class="productdescription" data-collapsed="false">
 	<h3>Additional Views</h3>
