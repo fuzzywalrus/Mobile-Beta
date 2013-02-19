@@ -4,7 +4,9 @@
 	<input type="hidden" name="product_id" value="{product_id}"/>
 	<input type="hidden" name="related_id" value="{product_id}">
 	<input type="hidden" name="goto" value="samepage">
-		<!--remove the two hidden fields below if the site does not require minimum orders or have inventory control-->
+	
+	
+	<!--remove the two hidden fields below if the site does not require minimum orders or have inventory control-->
 	<!--<INPUT TYPE="hidden" NAME="min_qty" value="{minimum_qty}" />
 	
 	<INPUT TYPE="hidden" NAME="max_qty" value="{qty_on_hand}" />-->
@@ -13,10 +15,14 @@
 				<!--wholesale Wholesale: wholesale-->{display_price}</span><br />
 	SKU: {catalog_id} <br>
 	{PRICELIST2}
-	<b>Quantity:</b>
-	<input type="TEXT" size = "2" name="qty" value="{minimum_qty}" style="width:100px !important;"/>
+	
+	<div class="">
+		<div class="unit"><div style="margin-top:15px;"><strong>Quantity:</strong> &nbsp;</div></div>
+		<div class="unit"><input type="TEXT" size = "2" name="qty" value="{minimum_qty}" style="width:100%;max-width:140px !important;min-width:90px !important;"/></div>
+	</div><!-- /grid-a -->
+	<div class="clearfix"></div>
 	<span data-role="fieldcontain">
-		 <fieldset data-role="controlgroup">
+		 <fieldset data-role="controlgroup" class="options">
 			{options}{fancy_options}
 		  </fieldset>
 	</span>
