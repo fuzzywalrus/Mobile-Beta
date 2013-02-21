@@ -47,6 +47,8 @@ var toggleCart = true;
 var toggleSearch = true;
 var minicartTable;
 
+// Anti-Jimmie Rustle
+$(".navtarget .navlink a").attr("href", "#")
 
 var expandHamburger = function() {
 	$("#navbar-expand").children(".ui-collapsible-content-collapsed").each(function(){
@@ -201,9 +203,9 @@ $('#search').click(function() {
 		<div data-role="navbar" id="nav-main" >
 			<ul>
 				<li><a href="/"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/home.png" style="width:32px"></a></li>
-				<li><a href="#" data-role="button" id="navbar1"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
-				<li><a href="#"  id="search"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/search.png" style="width:32px"></a></li>
-				<li><a href="#" id="cart"><span style="position:relative;top:-9px;">{total_qty}<span>&nbsp;</span></span><img src="images-mm/jquery/mobile/images/cart.png" style="width:32px"></a></li>
+				<li class="navlink"><a href="#" data-role="button" id="navbar1"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
+				<li class="navlink"><a href="#"  id="search"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/search.png" style="width:32px"></a></li>
+				<li class="navlink"><a href="#" id="cart"><span style="position:relative;top:-9px;">{total_qty}<span>&nbsp;</span></span><img src="images-mm/jquery/mobile/images/cart.png" style="width:32px"></a></li>
 			</ul>
 		</div><!-- /navbar -->
 		<div style="display:none;">
