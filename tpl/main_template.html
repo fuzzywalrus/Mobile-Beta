@@ -3,7 +3,7 @@
 <html manifest="example.appcache" lang="en-us">
 <!--Header-->
 <head>
-<!--v.27-->
+<!--v.28-->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <!--notsecure <base href = "{BASEHREF}"> notsecure-->
@@ -16,6 +16,10 @@
 <link rel="dns-prefetch" href="//ajax.googleapis.com">
 <link rel="dns-prefetch" href="//ajax.aspnetcdn.com">
 <!--<link rel="prefetch" href="webfont.woff"> tricky precache for web fonts :) -->
+<link rel="prefetch" href="{RELATIVEURL}/images-mm/jquery/mobile/images/home.png">
+<link rel="prefetch" href="{RELATIVEURL}/images-mm/jquery/mobile/images/menu.png">
+<link rel="prefetch" href="{RELATIVEURL}/images-mm/jquery/mobile/images/search.png">
+<link rel="prefetch" href="{RELATIVEURL}/images-mm/jquery/mobile/images/cart.png">
 <!--=======================================================-->
 <!--                       iOSify                          -->
 <!--=======================================================-->
@@ -62,7 +66,7 @@
 	</div>
 
 		<div data-role="navbar" id="nav-main" >
-			<ul>
+			<ul class="navtarget">
 				<li><a href="/"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/home.png" style="width:32px"></a></li>
 				<li class="navlink"><a href="#" data-role="button" id="navbar1"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/menu.png" style="width:32px" ></a></li>
 				<li class="navlink"><a href="#"  id="search"><span>&nbsp;</span><img src="images-mm/jquery/mobile/images/search.png" style="width:32px"></a></li>
