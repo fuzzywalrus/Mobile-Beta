@@ -1,14 +1,15 @@
 <!--checkout.html-->
 <!--SET CARTINFO==-->
+<style>
+.instructions {font-size: 12px;}
+</style>
+
 <div class="stepson"><strong>Step 1: Billing/Shipping Info</strong></div>
 
 <br>
 <div class="steps">Step 2: Payment</div><br />
 
-Billing and Shipping Information<br>
-<span class="instructions">Please review your order and fill out the billing form below. Required fields are marked with an asterisk (*).</span>
-	<br /><span class="errormessage">{MESSAGE}</span>
-<div style="clear:both;"></div>
+<!--{MESSAGE_is}_on <br /><span class="errormessage">{MESSAGE}</span>{MESSAGE_is}_on-->
 
 
 <hr>
@@ -20,32 +21,15 @@ Billing and Shipping Information<br>
 
 	
 
-<!--
-<form action =  "{SECUREURL}/login" method = "post">
-<span class="instructions">LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account below to use express checkout on future orders. <br><hr>
-User Name: <input type="text" name = "account_name" size = "15"><br>
-Password: <input type="hidden" name = "goto" value = "checkout" size = "10"><input type="password" name = "account_password" size =  "15">
-<br>
-<input class="fancybutton2" type = "submit" name = "Log In" value = "Log in" data-theme="b">
-</form>
-</span>
-<hr>
--->
-
-
-
 <!--loggedout 
 
 <div data-role="collapsible" data-content-theme="b" data-theme="b">
    <H3>Sign into your acccount</H3>
 	<div>
 	<form action = "{RELATIVEURL}/home/{SESSION}/login" method = "post" class="accountform" style="margin-top:10px">
-	
 	<p>
 			
 					<h6>LOGIN TO FILL IN YOUR ACCOUNT INFO:</span> <a href="{SECUREURL}/checkout#bill">Skip this and checkout</a>.  Set up an account on the next screen to use express checkout on future orders.</h6>
-
-
 
 					<strong>User Name: </strong>
 					<input type="text" name = "account_name" size = "15" data-mini="true"><br>
@@ -54,209 +38,592 @@ Password: <input type="hidden" name = "goto" value = "checkout" size = "10"><inp
 					<input type="password" name = "account_password" size =  "15" data-mini="true">
 					<br>
 					<input type = "submit" name = "Log In" value =  "Log in" data-theme="b" data-icon="gear" data-mini="true">
-				
-
 
 </form>
 	</div>
 </div>
 loggedout-->
 
+<!--loggedin
+<h3>Welcome, {sFirst_Name} {sLast_Name}</h3>
+<a href="logout" data-role="button">Not you? Sign Out</a>
+loggedin--> 
+
+
 <br>
-{CREATE_ACCOUNT}
-
-
+<!--{ CREATE_ACCOUNT }
+<br> -->
 
  
-<form action="confirmorder" method="post" name="orderform" onsubmit="return check_required('orderform')">
-<input type="hidden" name="required" value="First_Name,Last_Name,Email_Address,Verify_Email_Address,Telephone,Address1,City,State,Zip,Country,sAddress1,sFirst_Name,sLast_Name,sCity,sState,sZip,sCountry" />
-<!--giftcerts 
-<b>If you have a Gift Certificate, please enter the code below.</b><br>
-Gift Certificate:  <input type="text" name="gift_code" value="{gift_code}" class="formborder">
+<style>
+.accordion-group, .accordion-inner { border: none; }
+.accordion-heading .accordion-toggle { padding-left: 0; padding-right: 0; }
+.checkout-storyline { margin: 20px 0; }
+.form-horizontal .control-label {
+	width: 200px;	
+}
+.form-horizontal .controls {
+	margin-left: 220px;
+}
+.text-error {
+	color: red;
+	z-index: 100;
+}
+.ui-field-contain .ui-input-search, .ui-field-contain div.ui-input-text {
+	height: 36px;
+}
+</style>
 
 
- giftcerts-->
-			
-<div data-role="collapsible-set">
 
+     	<form action="confirmorder" method="post" name="orderform"  id="checkout_form" class="form-horizontal">
+
+        	
 <div data-role="collapsible" data-collapsed="false" data-content-theme="b">
+	<h2>Shipping Information</h2>
 
-<a name="bill"></a>
-<h3>Bill To:</h3>
+		<fieldset>
+                <h2><legend>Your E-Mail</legend></h2>
+                <div data-role="fieldcontain">
+                    <label class="control-label" for="email_address">Email Address</label>
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input id="email_address" name="email_address" type="email" placeholder="you@email.com" class="required" value="{Email_Address}">
+                </div>
+                <div data-role="fieldcontain">
+                    <label class="control-label" for="verify_email_address">Verify Email Address</label>
+      				<span class="add-on"><i class="icon-envelope"></i></span>
+                    <input id="verify_email_address" name="verify_email_address" type="email" placeholder="Retype email address" value="{Email_Address}">
+                </div>
+        </fieldset>
+           
+        <fieldset id="shipping_information">
+	            <h2><legend>Shipping Information</legend></h2>
+                    
+	            <!--loggedout                    
+                <div data-role="fieldcontain">
+                	<label class="control-label" for="sFirst_Name">First Name</label>
+                	<input id="sFirst_Name" name="sFirst_Name" type="text" class="required" value="{sFirst_Name}">
+                </div>
+                                        
+                <div data-role="fieldcontain">
+					<label class="control-label" for="sLast_Name">Last Name</label>
+					<input id="sLast_Name" name="sLast_Name" type="text" class="required" value="{sLast_Name}">
+                </div>
+                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sCompany_Name">Company Name</label>
+					<input id="sCompany_Name" name="sCompany_Name" type="text" value="{sCompany_Name}">
+				</div>
+                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sAddress1">Address Line 1</label>
+					<input id="sAddress1" name="sAddress1" type="text" placeholder="Street address, P.O. box, company name, c/o" class="required" value="{sAddress1}">
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sAddress2">Address Line 2</label>
+					<input id="sAddress2" name="sAddress2" type="text" placeholder="Apartment, suite, unit, building, floor, etc." value="{sAddress2}">
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sCity">City</label>
+					<input id="sCity" name="sCity" type="text" class="required" value="{sCity}">
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sState">State/Province <a href="#">?</a></label>
+					<input id="sState" name="sState" type="text" class="required" value="{sState}">
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sZip">Zip/Postal Code</label>
+					<input id="sZip" name="sZip" type="text" class="required" value="{sZip}">
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sCountry">Country</label>
+					<select id="sCountry" name="sCountry" class="required">
+					<option>US</option>
+					</select>
+				</div>
+				                    
+				<div data-role="fieldcontain">
+					<label class="control-label" for="sTelephone">Phone</label>
+					<input id="sTelephone" name="sTelephone" type="text" class="required" value="{sTelephone}">
+				</div>
 
-<div data-role="fieldcontain">
-    <label for="name">First Name*:</label>
-    <input type="text" name="First_Name" value="{First_Name}" id="name" />
-</div>	
+				loggedout-->
+                    
+                    
+                    
+                    <!--loggedin
+                <div class="accordion" id="accordion2">
+                	<!--<p>{sFirst_Name} {sLast_Name}<br/>
+                	{sCompany_Name}<!--{sCompany_Name_is}_on<br/>{sCompany_Name_is}_on-->
+                	{sAddress1}<br/>
+                	{sAddress2}<br/>
+                	{sCity}, {sState} {sZip}<br/>
+                	{sTelephone}<br/>
+                	</p> 
+                	<p><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">Edit</a></p>-->
+                          
+                          
+                	<div data-role="fieldcontain">
+						<label class="control-label" for="sFirst_Name">First Name</label>
+						<input id="sFirst_Name" name="sFirst_Name" type="text" class="required" value="{sFirst_Name}">
+                    </div>
+                                
+                    <div data-role="fieldcontain">
+						<label class="control-label" for="sLast_Name">Last Name</label>
+						<input id="sLast_Name" name="sLast_Name" type="text" class="required" value="{sLast_Name}">
+                    </div>
+                                
+                    <div data-role="fieldcontain">
+						<label class="control-label" for="sCompany_Name">Company Name</label>
+						<input id="sCompany_Name" name="sCompany_Name" type="text" value="{sCompany_Name}">
+                    </div>
+                    
+                                
+                    <div data-role="fieldcontain">
+						<label class="control-label" for="sAddress1">Address Line 1</label>
+						<input id="sAddress1" name="sAddress1" type="text" placeholder="Street address, P.O. box, company name, c/o" class="required" value="{sAddress1}">
+                    </div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sAddress2">Address Line 2</label>
+						<input id="sAddress2" name="sAddress2" type="text" placeholder="Apartment, suite, unit, building, floor, etc." value="{sAddress2}">
+					</div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sCity">City</label>
+						<input id="sCity" name="sCity" type="text" class="required" value="{sCity}">
+					</div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sState">State/Province <a href="#">?</a></label>
+						<input id="sState" name="sState" type="text" class="required" value="{sState}">
+					</div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sZip">Zip/Postal Code</label>
+						<input id="sZip" name="sZip" type="text" class="required" value="{sZip}">
+					</div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sCountry">Country</label>
+						<select id="sCountry" name="sCountry" class="required">
+							<option>US</option>
+						</select>
+					</div>
+                                
+					<div data-role="fieldcontain">
+						<label class="control-label" for="sTelephone">Phone</label>
+						<input id="sTelephone" name="sTelephone" type="text" class="required" value="{sTelephone}">
+					</div>
+                </div> <!--accordion2-->
+                    
+                    loggedin-->
+                </fieldset>
+            
+</div> <!--collapsible-->
+            
+            <p></p>
+            
+		<!--	<input type="submit" value="Continue"> -->
+        
 
-<div data-role="fieldcontain">
-    <label for="name">Last Name*:</label>
-    <input type="text" name="Last_Name" value="{Last_Name}"  id="lastname" />
-</div>	
+		<fieldset id="billing_information">
+		
+            <!--loggedout
+	        <label class="checkbox">
+                      <input id="billing_different" name="billing_different" type="checkbox"> My billing information is different from my shipping information.
+            </label>
+            <div class="billing-panel ui-body-b">
+                    
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="First_Name">First Name</label>
+                            <input id="First_Name" name="First_Name" type="text" class="required" value="{First_Name}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Last_Name">Last Name</label>
+                             <input id="Last_Name" name="Last_Name" type="text" class="required" value="{Last_Name}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Company_Name">Company Name</label>
+                            <input id="Company_Name" name="Company_Name" type="text" value="{Company_Name}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Address1">Address Line 1</label>
+                            <input id="Address1" name="Address1" type="text" placeholder="Street address, P.O. box, company name, c/o" class="required" value="{Address1}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Address2">Address Line 2</label>
+                            <input id="Address2" name="Address2" type="text" placeholder="Apartment, suite, unit, building, floor, etc." value="{Address2}">
+                        </div>
+                        
+                       <div data-role="fieldcontain">
+                            <label class="control-label" for="City">City</label>
+                            <input id="City" name="City" type="text" class="required" value="{City}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="State">State/Province <a href="#">?</a></label>
+                             <input id="State" name="State" type="text" class="required" value="{State}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Zip">Zip/Postal Code</label>
+                            <input id="Zip" name="Zip" type="text" class="required" value="{Zip}">
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Country">Country</label>
+                                <select id="Country" name="Country" class="required">
+                                    <option>US</option>
+                                </select>
+                        </div>
+                        
+                        <div data-role="fieldcontain">
+                            <label class="control-label" for="Telephone">Phone</label>
+                            <input id="Telephone" name="Telephone" type="text" class="required" value="{Telephone}">
+                        </div>
+                        
+                    </div><!--/billing panel-->
+                    loggedout-->
+                    
+                    
+                    
+                    <!--loggedin
+                    
+                    		<!--	<br>
+                    			<p>Saved Information</p>
+                          		<p>{First_Name} {Last_Name}<br/>
+                                {Company_Name}<!--{Company_Name_is}_on<br/>{Company_Name_is}_on-->
+                                {Address1}<br/>
+                                <!--{Address2_is}_on {Address2}<br/> {Address2_is}_on-->
+                                {City}, {State} {Zip}<br/>
+                                {Telephone}<br/>
+                                </p> -->
+                                <div data-role="collapsible" data-collapsed="true" data-content-theme="b">
 
-<!--wholesale <div data-role="fieldcontain">
-    <label for="name">Company Name:</label>
-    <input type="text" name="Company_Name" value="{Company_Name}" id="lastname" />
-</div>	wholesale-->
+                                <h3>Billing Information</h3>
+                      
+                      
+                      
+                          		<div data-role="fieldcontain">
+                                    <label class="control-label" for="First_Name">First Name</label>
+                                    <input id="First_Name" name="First_Name" type="text" class="required" value="{First_Name}">
+                                </div>
+                                
+                               <div data-role="fieldcontain">
+                                    <label class="control-label" for="Last_Name">Last Name</label>
+                                    <input id="Last_Name" name="Last_Name" type="text" class="required" value="{Last_Name}">
+                                </div>
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Company_Name">Company Name</label>
+                                    <input id="Company_Name" name="Company_Name" type="text" value="{Company_Name}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Address1">Address Line 1</label>
+                                    <input id="Address1" name="Address1" type="text" placeholder="Street address, P.O. box, company name, c/o" class="required" value="{Address1}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Address2">Address Line 2</label>
+                                    <input id="Address2" name="Address2" type="text" placeholder="Apartment, suite, unit, building, floor, etc." value="{Address2}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="City">City</label>
+                                    <input id="City" name="City" type="text" class="required" value="{City}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="State">State/Province <a href="#">?</a></label>
+                                    <input id="State" name="State" type="text" class="required" value="{State}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Zip">Zip/Postal Code</label>
+                                    <input id="Zip" name="Zip" type="text" class="required" value="{Zip}">
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Country">Country</label>
+                                    <select id="Country" name="Country" class="required">
+                                       <option>US</option>
+                                    </select>
+                                </div>
+                                
+                                <div data-role="fieldcontain">
+                                    <label class="control-label" for="Telephone">Phone</label>
+                                    <input id="Telephone" name="Telephone" type="text" class="required" value="{Telephone}">
+                                </div>
+                          
+                      </div> <!--accordion3-->
+                    
+                    loggedin-->
+                </fieldset>
 
-<div data-role="fieldcontain">
-    <label for="name">Email Address*:</label>
-    <input type="text" name="Email_Address" value="{Email_Address}" />
-</div>	
+        <p></p>
+        
+       <div data-role="collapsible" data-collapsed="false" data-content-theme="b">
+       	<h3>Additional Information</h3>
+        <fieldset>
+        	<p></p>
+            <legend></legend>
+            <div data-role="fieldcontain">
+                <label class="control-label" for="comments">Comments</label>
+                <textarea id="comments" name="comments" type="text"></textarea>
+            </div>
+            <!--
+            <div data-role="fieldcontain">
+            	<label class="control-label" for="is_gift">Is this order a gift?<br><span class="muted">(We'll ship a gift receipt.)</span></label>
+                 <input type="checkbox" id="is_gift" name="is_gift">
+            </div>
+          
+           <div data-role="fieldcontain">
+            	<label class="control-label" for="gift_message">Gift Message</label>
+                <textarea id="gift_message" name="gift_message"></textarea>
+            </div>
+              -->
+         
+            <div data-role="fieldcontain">
+            	<!--<label class="control-label" for="is_message">Subscribe to e-Newsletter</label> -->
+                  <input type="checkbox" id="optin" name="optin">
+                  <label for="optin"><span class="muted">Newsletter Signup (We do not share or sell our mailing lists.)</span></label>
+            </div>
+        </fieldset>
 
-<div data-role="fieldcontain">
-    <label for="name">Verify Email Address*:</label>
-    <input type="text" name="Verify_Email_Address" value="{Verify_Email_Address}" onBlur = "javascript: compare('orderform','Email_Address','Verify_Email_Address')"/>
-</div>	
+        <!--loggedout
+        
+                <fieldset>
+                    <legend>Create an Account (optional)</legend>
+                    <p>Save time the next time you shop with us. Just choose a login user name and password and next time you shop, you won't have to fill out your billing and shipping information (for your security, we DO NOT store your credit card information).</p>
 
-<div data-role="fieldcontain">
-    <label for="name">Phone*:<br /><small>Ex: 111-222-3333</small></label>
-    <input type="text" name="Telephone" value="{Telephone}" />
-</div>	
+                    
+                   <div data-role="fieldcontain">
+                        <label class="control-label" for="account_name">Username</label>
+                        <input type="text" id="account_name" name="account_name">
+                    </div>
 
-<div data-role="fieldcontain">
-    <label for="name">Address*:</label>
-    <input type="text" name="Address1" value="{Address1}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Address 2*:</label>
-    <input type="text" name="Address2"  value="{Address2}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">City*:</label>
-    <input type="text" name="City" value="{City}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">State/Province <small>(Use Abbreviations)</small>:</label>
-    <input type = "HIDDEN" name = "sales_tax_field_name" value = "sState" />
-    <input type="text" name="State" value="{State}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Zip/Postal Code*:</label>
-    <input type="text" name="Zip" value="{Zip}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Country*:</label>
-    <input type="text" name="Country" value="{Country}" />
-</div>	
-
-
-<br><input type = "button" name="Copy"  data-theme="b"  value ="Copy Billing Info to Shipping" data-mini="true" onclick = "copyFields(this.form)" />
-
-	</div>
-
-
-
-
-
-	<div data-role="collapsible" data-content-theme="b">
-<h3>Ship To:</h3>
-
-
-<div data-role="fieldcontain">
-    <label for="name">First Name*:</label>
-    <input type="text" name="sFirst_Name" value="{sFirst_Name}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Last Name*:</label>
-    <input type="text" name="sLast_Name" value="{sLast_Name}" />
-</div>	
-
-<!--wholesale <div data-role="fieldcontain">
-    <label for="name">Company Name*:</label>
-    <input type="text" name="sCompany_Name" value="{sCompany_Name}" />
-</div>	wholesale-->
-
-<div data-role="fieldcontain">
-    <label for="name">Delivery Phone*:<br><small>Ex: 111-222-3333</small></label>
-    <input type="text" name="sTelephone" id = "Delivery Phone" value="{sTelephone}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Address*:</label>
-    <input type="text" name="sAddress1" id = "Ship To Address" value="{sAddress1}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Address #2:</label>
-    <input type="text" name="sAddress2" value="{sAddress2}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">City*:</label>
-    <input name="sCity" id = "Ship To City" value="{sCity}" class="formborder" maxlength=25 >
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">State/Province <small>(Use Abbreviations)</small>:</label>
-    <input type="text" id = "Ship To State" name="sState" value = "{sState}" />
-</div>
-
-<div data-role="fieldcontain">
-    <label for="name">Zip/Postal Code*:</label>
-    <input type="text" name="sZip" id = "Ship To Zip" value="{sZip}" />
-</div>	
-
-<div data-role="fieldcontain">
-    <label for="name">Country*:</label>
-    <input type="text" name="sCountry" id = "Ship To Country" value="{sCountry}"  />
-</div>	
-     
-</div></div>
-     
-     
-     <Hr>
-
-
-
-<b>Comments:</b><br /><textarea name="Comments" rows="5" wrap="virtual">{Comments}</textarea><br />
-<div data-role="collapsible" data-content-theme="b">
-   <H3>Enter Your Coupon Code</H3>
-		<input type ="text" id="coupon_code" name="coupon_code" value="{coupon_code}" size = "7" maxsize = "15"placeholder="Enter your coupon code here:"/>  
-</div>
-
-<!--=============================-->
-<!--          Gift message       -->
-<!--=============================-->
-
-<!--
-<div data-role="fieldcontain">
-    <fieldset data-role="controlgroup">
-    	<legend>This order is a gift:</legend>
-         	<input type="radio" name="gift" id="radio-choice-1" value="Yes"/>
-         	<label for="radio-choice-1">Yes</label>
-
-         	<input type="radio" name="gift" id="radio-choice-2" value="No"  checked="checked"/>
-         	<label for="radio-choice-2">No</label>
-
-    </fieldset>
-</div>
+                    <div data-role="fieldcontain">
+                        <label class="control-label" for="account_password">Password<br/><span class="muted">(minimum 6 characters)</span></label>
+                        <input type="password" id="account_password" name="account_password">
+                    </div>
+                    
+                    <div data-role="fieldcontain">
+                        <label class="control-label" for="verify_password">Verify Password</label>
+                        <input type="password" id="verify_password" name="verify_password">
+                    </div>
+                </fieldset>
+        loggedout-->
+        
+        
+        
+        
+                <!--loggedin <label class="checkbox">
+                      <input type="checkbox"> Save changes on this page to my account.
+                    </label> loggedin-->
 
 
-<b>Gift Message:</b><br /><textarea name="Gift_Message" rows="5" wrap="virtual">{Gift_Message}</textarea><br />--->
 
-<!--=============================-->
-<!--Where did you hear about us? -->
-<!--=============================-->
-
-
-<!--Where did you hear about us?<br />
-<input name="Source" value="{Source}" size="25" maxlength="50" /><br /> -->
-<!--loggedin
-<input type = "checkbox" name = "save_account_info" value = "Y">Save changes on this page to my account<br />
-loggedin-->
-
-<div class="continue">
-<input type="submit" data-theme="b" value="Continue Secure Checkout " data-icon="arrow-r"/>
-</div>
-
+       </div>
+                <fieldset>
+                	<input type="submit" value="Continue" data-theme="b">
+                </fieldset>
 </form>
 
+<script type="text/javascript">
 
+/* Begin billing / shipping field sync */
+
+
+//check whether there is existing account info; assumes any account with billing info entered includes an Address1
+var billingCheck = "{address1}";
+
+billingIsDifferent = function() {
+		/* compare shipping field values to billing field values */
+		var value = 0;
+		$("#shipping_information :input").each( function() {
+														 if($(this).val() != $("#checkout_form [name = "+$(this).attr('name').substring(1)+"]").val()) {
+															 value = 1;
+															 
+														 } 
+														 
+														 });
+		return value;
+}
+
+/* copy billing field values to shipping by default */
+
+copyToShipping = function(e) {
+	if($(e).attr('name')) {
+		$("#checkout_form [name = s"+$(e).attr('name')+"]").val($(e).val());
+	} else {
+		return false;	
+	}
+}
+
+copyToBilling = function(e) {
+	if($(e).attr('name')) {
+		$("#checkout_form [name = "+$(e).attr('name').substring(1)+"]").val($(e).val());
+	} else {
+		return false;	
+	}
+}
+
+shippingInfoExists = function() {
+	return $("#saddress1").val();
+}
+
+billingInfoExists = function() {
+	return billingCheck;
+}
+
+$("#shipping_information :input").change(function() {
+	if(!$("#billing_different:checked").length) {
+		copyToBilling($(this));
+	}
+});
+
+//billing info is different from shipping checkbox
+//if selected, clear the billing panel
+//if deselected, copy the shipping values back to the fields
+$("#billing_different").click(function() {  
+   if(this.checked) {
+	   $("#checkout_form .billing-panel :input").val('');
+	   $(".billing-panel").slideDown(200);
+   } else {
+	   $(".billing-panel").slideUp(200);
+	   $("#shipping_information :input").each(function() {
+			copyToBilling($(this));
+		 });
+   }	
+});
+
+</script>
+
+
+<!--loggedout
+<script>
+$(document).ready(function() {
+
+	//Set shipping fields
+	if(!billingInfoExists()) { //if there is no existing account information, hide billing panel and copy shipping info to billing		
+		$(".billing-panel").hide();
+		$("#shipping_information :input").each(function() {
+			copyToBilling($(this));
+		 });		
+	}  else { //billing info exists, check to see if it's different
+    	if(billingIsDifferent()) {
+            $("#billing_different").attr('checked', true);  
+            $(".billing-panel").show();
+        } else {
+        	$(".billing-panel").hide();
+        }
+	}
+							  
+
+}); 
+</script>
+loggedout-->
+
+<script>
+
+/* Validate */
+
+$(document).ready(function() {
+	// validate the comment form when it is submitted
+	//$("#checkout_form").validate({errorClass: "text-error"});
+
+	
+
+	$("#checkout_form").validate({
+		errorClass: "text-error",
+		rules: {
+			sFirst_Name: {
+				required: true,
+				minlength: 2
+			},
+			sLast_Name: {
+				required: true,
+				minlength: 2
+			},
+			email_address: {
+				required: true,
+				email: true
+			},
+			verify_email_address: {
+				required: true,
+				equalTo: "#email_address"
+			},
+			verify_password: {
+				equalTo: "#account_password"
+			},
+			sZip: {
+				zipcodeUS: true
+			}
+		},
+		messages: {
+			sFirst_Name: {
+				required: "Please enter your first name.",
+				minlength: jQuery.format("At least 2 characters are required.")
+			},
+			sLast_Name: {
+				required: "Please enter your last name.",
+				minlength: jQuery.format("At least 2 characters are required.")
+			},
+			sAddress1: {
+				required: "Please enter your address.",
+				minlength: jQuery.format("At least 2 characters are required.")
+			},
+			sCity: {
+				required: "Please enter your city.",
+				minlength: jQuery.format("At least 2 characters are required.")
+			},
+			sState: {
+				required: "Please enter your state."
+			},
+			sZip: {
+				required: "Please enter your zip code."
+			},
+			sTelephone: {
+				required: "Please enter your phone number."
+			},
+			email_address: "Please enter a valid email address.",
+			verify_email_address: {
+				required: "Please retype your email address.",
+				equalTo: "Please enter the same email address as above."
+			},
+			verify_password: {
+				equalTo: "Please enter the same email address as above."
+			}
+		}
+	});
+
+	// propose username by combining first- and lastname
+	$("#username").focus(function() {
+		var firstname = $("#first_name").val();
+		var lastname = $("#last_name").val();
+		if(firstname && lastname && !this.value) {
+			this.value = firstname + "." + lastname;
+		}
+	});
+	
+/* Copy validation fields into hidden input for backend validation	*/
+	
+// grab class="required" from form, CS, and add to value of input
+
+});
+</script>
+
+
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
 <!--/checkout.html-->
